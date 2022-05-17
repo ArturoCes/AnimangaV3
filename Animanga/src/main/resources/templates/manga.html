@@ -25,9 +25,9 @@
       	  <h2 class="p-2" th:text="${manga.nombre}">nombre</h2>
           <p class="separador2 px-2" id="descrip" th:text="${manga.descripcion}">descripcion</p>
           <p  th:text="${manga.nombre}" class="sep4 px-2">categoria</p>
-          <p class="px-2"><span id="prec" th:text="${manga.nombre}">precio</span> €</p>
+          <p class="px-2"><span id="prec" th:text="${manga.precio}">precio</span> €</p>
           <p id="total"></p>
-          <p class="px-2"><span id="prec1" th:text="${manga.nombre}">Descuento</span> % de descuento</p>
+          
           <div class="btn-group">
               <a th:href="@{/eliminar/{id}(id=${manga.id})}"><button type="button" class="btn btn-sm btn-danger m-2">Eliminar</button></a>
               <a th:href="@{/editar/{id}(id=${manga.id})}"><button type="button" class="btn btn-sm btn-primary m-2" >Editar</button></a>

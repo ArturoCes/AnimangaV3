@@ -50,11 +50,15 @@
 								</th:block>
 							</ul>
 						</div>
+					<li class="nav-item">
+						<a class="nav-link text-light" th:href="@{/login}"><button class="btn bot" type="button">INICIAR
+								SESIÓN</button></a>
+					</li>
 				</ul>
 				<form class="d-flex">
 					<input class="form-control me-2 " type="text-muted" name="q" th:value="${param.q}"
 						placeholder="Buscar..."
-							onchange="window.location.href='http://localhost:9000/?q=' + this.value">
+						onchange="window.location.href='http://localhost:9000/?q=' + this.value">
 					<button class="btn bot" type="button">BUSCAR</button>
 				</form>
 			</div>
