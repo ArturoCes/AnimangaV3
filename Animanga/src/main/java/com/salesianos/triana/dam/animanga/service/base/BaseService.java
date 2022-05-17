@@ -1,4 +1,4 @@
-package com.salesianos.triana.dam.service.base;
+package com.salesianos.triana.dam.animanga.service.base;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

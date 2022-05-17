@@ -1,4 +1,4 @@
-package com.salesianos.triana.dam.model;
+package com.salesianos.triana.dam.animanga.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import net.bytebuddy.dynamic.loading.ClassReloadingStrategy.Strategy;
+
 @Entity
 @Data
 @AllArgsConstructor

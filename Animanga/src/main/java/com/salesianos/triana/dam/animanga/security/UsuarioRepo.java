@@ -1,4 +1,4 @@
-package com.salesianos.triana.dam.security;
+package com.salesianos.triana.dam.animanga.security;
 
 import java.time.LocalDate;
 import java.util.Collections;

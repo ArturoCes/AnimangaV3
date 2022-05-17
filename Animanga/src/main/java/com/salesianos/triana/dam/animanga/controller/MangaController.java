@@ -1,9 +1,10 @@
-package com.salesianos.triana.dam.controller;
+package com.salesianos.triana.dam.animanga.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.salesianos.triana.dam.model.Categoria;
-import com.salesianos.triana.dam.model.Manga;
-import com.salesianos.triana.dam.model.Mangaka;
-import com.salesianos.triana.dam.repository.IMangakaRepositorio;
-import com.salesianos.triana.dam.service.CategoriaService;
-import com.salesianos.triana.dam.service.MangaService;
+import com.salesianos.triana.dam.animanga.model.Categoria;
+import com.salesianos.triana.dam.animanga.model.Manga;
+import com.salesianos.triana.dam.animanga.repository.IMangakaRepositorio;
+import com.salesianos.triana.dam.animanga.service.CategoriaService;
+import com.salesianos.triana.dam.animanga.service.MangaService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,11 +25,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class MangaController {
-	private final MangaService mangaService;
-	private final CategoriaService categoriaService;
-	private final IMangakaRepositorio mangakaRepository;
+	@Autowired
+	private MangaService mangaService;
+	@Autowired
+	private CategoriaService categoriaService;
+	@Autowired
+	private IMangakaRepositorio mangakaRepository;
 
-	@GetMapping({ "/", "/manga" })
+	@GetMapping({ "/", "/index" })
 	public String index(Model model, @RequestParam("q") Optional<String> consulta) {
 
 		List<Manga> mangas = new ArrayList<>();
@@ -39,16 +42,16 @@ public class MangaController {
 
 			}
 			model.addAttribute("mangas", mangas);
-			
+
 		} else {
 			mangas = mangaService.findByNombre(consulta.get());
 		}
-	
-		model.addAttribute("mangas", mangas);		
 
-		return"index";
+		model.addAttribute("mangas", mangas);
 
-}
+		return "index";
+
+	}
 
 	@GetMapping("/manga/{id}")
 	public String mangaporId(@PathVariable("id") Long mangaId, Model model) {
@@ -57,20 +60,19 @@ public class MangaController {
 
 		return "manga";
 	}
-	
 
 	@GetMapping("/manga/categoria/{id}")
 	public String mangaPorCat(Model model, @PathVariable("id") Long catId) {
-		
+
 		Categoria c = categoriaService.findById(catId);
-		
+
 		List<Manga> mangas = new ArrayList<>();
 		for (Manga manga : mangaService.findByCategoria(catId)) {
 			mangas.add(manga);
 
 		}
 		model.addAttribute("mangas", mangas);
-		model.addAttribute("categoria",c);
+		model.addAttribute("categoria", c);
 
 		return "categorias";
 	}

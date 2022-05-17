@@ -16,11 +16,6 @@
 
 <body>
 
-	<!-- Fixed navbar -->
-
-
-	<!-- Aquí es donde definimos que este encabezado es un fragmento que podremos usar en otras plantillas html
-	cuando usemos el nombre de "encabezado", el usado en th:"encabezado" de la siguiente línea -->
 
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" th:fragment="encabezado">
 		<div class="container-fluid">
@@ -29,27 +24,27 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="mynavbar">
-				<ul class="navbar-nav me-auto">
+				<ul class="navbar-nav me-auto text-light">
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/manga}">ANIMANGA </a>
+						<a class="nav-link text-light" th:href="@{/index}">ANIMANGA </a>
+					</li>
+					<li class="nav-item text-light">
+						<a class="nav-link text-light" th:href="@{/mangakas}">MANGAKAS</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/mangakas}">MANGAKAS</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/form}">AÑADIR</a>
+						<a class="nav-link text-light" th:href="@{/form}">AÑADIR</a>
 					</li>
 					<li>
 						<div class="dropdown">
 
 							<button type="button"
-								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-muted"
+								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
 								data-bs-toggle="dropdown">
 								CATEGORÍAS
 							</button>
-							<ul class="dropdown-menu bg-dark">
+							<ul class="dropdown-menu bg-dark text-light">
 								<th:block th:each="categoria : ${categorias}">
-									<a class="dropdown-item"
+									<a class="dropdown-item text-light"
 										th:href="@{/manga/categoria/{id}(id=${categoria.idCategoria})}"
 										th:text="${categoria.nombre}"></a>
 								</th:block>

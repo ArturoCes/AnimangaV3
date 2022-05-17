@@ -1,15 +1,15 @@
-package com.salesianos.triana.dam;
+package com.salesianos.triana.dam.animanga;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Component;
 
-import com.salesianos.triana.dam.model.Categoria;
-import com.salesianos.triana.dam.model.Manga;
-import com.salesianos.triana.dam.model.Mangaka;
-import com.salesianos.triana.dam.repository.ICategoriaRepositorio;
-import com.salesianos.triana.dam.repository.IMangaRepositorio;
-import com.salesianos.triana.dam.repository.IMangakaRepositorio;
+import com.salesianos.triana.dam.animanga.model.Categoria;
+import com.salesianos.triana.dam.animanga.model.Manga;
+import com.salesianos.triana.dam.animanga.model.Mangaka;
+import com.salesianos.triana.dam.animanga.repository.ICategoriaRepositorio;
+import com.salesianos.triana.dam.animanga.repository.IMangaRepositorio;
+import com.salesianos.triana.dam.animanga.repository.IMangakaRepositorio;
 
 import lombok.RequiredArgsConstructor;
 
