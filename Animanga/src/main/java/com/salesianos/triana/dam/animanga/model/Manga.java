@@ -1,4 +1,4 @@
-package com.salesianos.triana.dam.model;
+package com.salesianos.triana.dam.animanga.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

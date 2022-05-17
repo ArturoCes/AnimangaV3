@@ -1,4 +1,4 @@
-package com.salesianos.triana.dam.controller;
+package com.salesianos.triana.dam.animanga.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.salesianos.triana.dam.model.Categoria;
-import com.salesianos.triana.dam.model.Manga;
-import com.salesianos.triana.dam.model.Mangaka;
-import com.salesianos.triana.dam.repository.IMangakaRepositorio;
-import com.salesianos.triana.dam.service.CategoriaService;
-import com.salesianos.triana.dam.service.MangaService;
+import com.salesianos.triana.dam.animanga.model.Categoria;
+import com.salesianos.triana.dam.animanga.model.Manga;
+import com.salesianos.triana.dam.animanga.model.Mangaka;
+import com.salesianos.triana.dam.animanga.repository.IMangakaRepositorio;
+import com.salesianos.triana.dam.animanga.service.CategoriaService;
+import com.salesianos.triana.dam.animanga.service.MangaService;
 
 import lombok.RequiredArgsConstructor;
 

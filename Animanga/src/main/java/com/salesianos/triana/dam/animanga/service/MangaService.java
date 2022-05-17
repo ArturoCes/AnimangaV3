@@ -1,12 +1,12 @@
-package com.salesianos.triana.dam.service;
+package com.salesianos.triana.dam.animanga.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.salesianos.triana.dam.model.Manga;
-import com.salesianos.triana.dam.repository.IMangaRepositorio;
-import com.salesianos.triana.dam.service.base.BaseService;
+import com.salesianos.triana.dam.animanga.model.Manga;
+import com.salesianos.triana.dam.animanga.repository.IMangaRepositorio;
+import com.salesianos.triana.dam.animanga.service.base.BaseService;
 
 @Service
 public class MangaService extends BaseService<Manga, Long, IMangaRepositorio> {

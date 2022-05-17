@@ -1,4 +1,4 @@
-package com.salesianos.triana.dam.model;
+package com.salesianos.triana.dam.animanga.model;
 
 import java.util.ArrayList;
 import java.util.List;
