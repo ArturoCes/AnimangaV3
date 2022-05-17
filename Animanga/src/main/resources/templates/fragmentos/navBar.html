@@ -19,17 +19,17 @@
 
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" th:fragment="encabezado">
 		<div class="container-fluid">
-			<a class="navbar-brand" th:href=@{/index}> <img th:src="@{/logo.png}" width="100px" alt="Logo oficial"></a>
+			<a class="navbar-brand" th:href=@{/manga}> <img th:src="@{/logo.png}" width="100px" alt="Logo oficial"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto text-light">
 					<li class="nav-item">
-						<a class="nav-link text-light" th:href="@{/index}">ANIMANGA </a>
+						<a class="nav-link text-light" th:href="@{/manga}">ANIMANGA </a>
 					</li>
 					<li class="nav-item text-light">
-						<a class="nav-link text-light" th:href="@{/mangakas}">MANGAKAS</a>
+						<a class="nav-link text-light" th:href="@{/mangaka/mangakas}">MANGAKAS</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-light" th:href="@{/form}">AÑADIR</a>

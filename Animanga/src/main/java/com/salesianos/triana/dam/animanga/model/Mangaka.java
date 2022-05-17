@@ -33,7 +33,7 @@ public class Mangaka {
 	@Builder.Default
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy = "autor", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "autor", fetch=FetchType.EAGER,orphanRemoval=true)
 	private List<Manga> obras = new ArrayList<>();
 	private String urlPortada;
 	@Column(length=1000)
@@ -48,6 +48,7 @@ public class Mangaka {
 		this.biografia = biografia;
 	}
 	
+  
 	
 
 	

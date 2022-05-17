@@ -1,65 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
-  <head th:replace="~{fragmentos/head::head}">
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    </head>
+
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
 
 <body>
 
-  <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+	
 
-    <nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
 
-  <main>
-  <div class="mt-5 pt-5 container-fluid row mr-0 pr-0 " data-aos="flip-right">
-    <div class="col-12 col-lg-4 my-3 mr-0 pr-0 ">
-      <div class="card shadow-sm mr-0 pr-0">
-          <img th:src="${not (#strings.isEmpty(manga.urlPortada))} 
-								              ? ${manga.urlPortada} : 'http://placehold.it/48x48'"
-								class="img-responsive icono-categoria" alt="imagen1" />
-      </div>
-    </div>
-    <div class="col-12 col-lg-8 my-3 mr-0 pr-0">
-      <div class="card shadow-sm p-2 mr-0">
-      	  <h2 class="p-2" th:text="${manga.nombre}">nombre</h2>
-          <p class="separador2 px-2" id="descrip" th:text="${manga.descripcion}">descripcion</p>
-          <p  th:text="${manga.nombre}" class="sep4 px-2">categoria</p>
-          <p class="px-2"><span id="prec" th:text="${manga.precio}">precio</span> €</p>
-          <p id="total"></p>
-          
-          <div class="btn-group">
-              <a th:href="@{/eliminar/{id}(id=${manga.id})}"><button type="button" class="btn btn-sm btn-danger m-2">Eliminar</button></a>
-              <a th:href="@{/editar/{id}(id=${manga.id})}"><button type="button" class="btn btn-sm btn-primary m-2" >Editar</button></a>
-              <button type="button" class="btn btn-sm btn-success m-2">Añadir al carrito</button>
-            </div>
-      </div>
-    </div>
-  </div>
-    <div class="row mr-0 pr-0" data-aos="zoom-in">
-        <div id="demo" class="carousel slide my-5 col 12 col-lg-12 mr-0 pr-0" data-ride="carousel">
+	<main>
+		<div class="mt-5 pt-5 container-fluid row mr-0 pr-0 " data-aos="flip-right">
+			<div class="col-12 col-lg-4 my-3 mr-0 pr-0 ">
+				<div class="card shadow-sm mr-0 pr-0 imgSize">
+					<img th:src="${not (#strings.isEmpty(manga.urlPortada))} 
+								              ? ${manga.urlPortada} : 'http://placehold.it/48x48'" class="img-responsive icono-categoria"
+						alt="imagen1" />
+				</div>
+			</div>
+			<div class="col-12 col-lg-8 my-3 mr-0 pr-0">
+				<div class="card shadow-sm p-2 mr-0">
+					<h2 class="p-2" th:text="${manga.nombre}">nombre</h2>
+					<p class="separador2 px-2" id="descrip" th:text="${manga.descripcion}">descripcion</p>
+					<p th:text="${manga.nombre}" class="sep4 px-2">categoria</p>
+					<p class="px-2"><span id="prec" th:text="${manga.precio}">precio</span> €</p>
+					<p id="total"></p>
 
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
+					<div class="btn-group">
+				
+					
+						<a th:href="@{/eliminar/{id}(id=${manga.id})}"><button type="button"
+								class="btn btn-sm btn-danger m-2">Eliminar</button></a>
+						<a th:href="@{/editar/{id}(id=${manga.id})}"><button type="button"
+								class="btn btn-sm btn-primary m-2">Editar</button></a>
+							<button type="button" class="btn btn-sm btn-success m-2">Añadir al carrito</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
-
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-
-  </div>
- </div>
-
-    <script> AOS.init();</script>
-    <footer th:replace="~{fragmentos/piePagina::pie}"></footer>
+		<script> AOS.init();</script>
+		<footer th:replace="~{fragmentos/piePagina::pie}"></footer>
 </body>
+
 </html>

@@ -11,20 +11,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Manga {
-	//Attributes
+	// Attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String urlPortada;
 	private double precio;
 	private String nombre;
-	@Column(length=10000)
+	@Column(length = 10000)
 	private String descripcion;
 	private String editorial;
 	private int numPags;
@@ -32,13 +33,13 @@ public class Manga {
 	private double pesoProducto;
 	@ManyToOne
 	private Categoria categoria;
-	
+
 	@ManyToOne
 	private Mangaka autor;
-	//Constructor
+	// Constructor
 
 	public Manga(String urlPortada, String nombre, String descripcion, String editorial, int numPags, String isbn10,
-			double pesoProducto, Mangaka autor,Categoria categoria) {
+			double pesoProducto, Mangaka autor, Categoria categoria) {
 		super();
 		this.urlPortada = urlPortada;
 		this.nombre = nombre;
@@ -48,13 +49,12 @@ public class Manga {
 		this.isbn10 = isbn10;
 		this.pesoProducto = pesoProducto;
 		this.autor = autor;
-		this.categoria=categoria;
+		this.categoria = categoria;
 	}
-	
-	
-	//Getters & Setters
-	
-	
-	
-	
+
+	public void removeMangaka(Mangaka m) {
+		m.getObras().remove(this);
+		this.autor = null;
+	}
+
 }
