@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<header>
+		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+	</header>
+	<main class="asistencia">
+		<section>
+			<article>
+				<div id="contenedor" class="container-fluid">
+					<div class="container">
+						<div class="col-12 col-lg-8 order-1">
+							<div class="well well-sm">
+								<form class="form-horizontal needs-validation" novalidate method="POST"
+									th:action="@{/submit/{id}(id=${manga.id})}" th:object="${manga}">
+									<fieldset class="mt-5">
+										<div class="form-group">
+											<div class="col-lg-10 mt-5">
+												<label for="urlPortada">URL PORTADA</label>
+												<input th:field="*{urlPortada}" id="urlPortada" name="urlPortada"
+													type="text" placeholder="urlPortada" class="form-control" required>
+												<div class="valid-feedback">correcto</div>
+												<div class="invalid-feedback">Tienes que rellenar este campo</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-lg-10 mt-5">
+												<label for="nombre">Nombre</label>
+												<input th:field="*{nombre}" id="nombre" name="nombre" type="text"
+													placeholder="Nombre" class="form-control" required>
+												<div class="valid-feedback">correcto</div>
+												<div class="invalid-feedback">Tienes que rellenar este campo</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-lg-8">
+												<label for="descripcion">Descripción</label>
+												<textarea th:field="*{descripcion}" class="form-control"
+													id="descripcion" name="descripcion" placeholder="Descripción"
+													rows="7" required></textarea>
+												<div class="valid-feedback">correcto</div>
+												<div class="invalid-feedback">Tienes que rellenar este campo</div>
+											</div>
+										</div>
+										<div class="form-group col-lg-10">
+											<label for="editorial">Editorial</label>
+											<input th:field="*{editorial}" id="editorial" name="editorial" type="text"
+												placeholder="Editorial" class="form-control" required>
+											<div class="valid-feedback">correcto</div>
+											<div class="invalid-feedback">Tienes que rellenar este campo</div>
+										</div>
+
+
+										<div class="form-group col-lg-10">
+											<label for="numPags">Número de páginas</label>
+											<input th:field="*{numPags}" id="numPags" name="numPags" type="text"
+												placeholder="Número de páginas" class="form-control"
+												pattern='[0-9]+(\.[0-9][0-9]?)?' required>
+											<div class="valid-feedback">correcto</div>
+											<div class="invalid-feedback">Tienes que introducir números en este campo
+											</div>
+										</div>
+										<div class="form-group col-lg-10">
+											<label for="isbn10">ISBN 10</label>
+											<input th:field="*{isbn10}" id="isbn10" name="isbn10" type="number"
+												placeholder="ISBN" class="form-control" required>
+										</div>
+										<div class="form-group col-lg-10">
+											<label for="pesoProducto">Peso producto</label>
+											<input th:field="*{pesoProducto}" id="pesoProducto" name="pesoProducto"
+												type="number" placeholder="pesoProducto" class="form-control" required>
+										</div>
+
+										<label>Categorias</label>
+										<div class="form-check ml-3">
+											<select th:field="*{categoria}">
+												<option value="-1">---</option>
+												<option th:each="categoria : ${categorias}"
+													th:value="${categoria.idCategoria}" th:text="${categoria.nombre}">
+													Categoria
+												</option>
+											</select>
+										</div>
+										<div class="form-group col-lg-10">
+											<label for="nombreAutor">Nombre autor</label>
+											<input th:field="*{autor.nombre}" id="nombreAutor" name="nombreAutor"
+												type="text" placeholder="pesoProducto" class="form-control">
+										</div>
+										<div class="form-group d-flex m-3">
+											<button type="reset" class="btn btn-lg btn-outline-primary">Borrar
+												todo</button>
+											<button type="submit" class="btn btn-lg btn-outline-primary">Enviar</button>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</article>
+		</section>
+
+	</main>
+	<footer th:replace="~{fragmentos/piePagina::pie}"></footer>
+</body>
+
+</html>

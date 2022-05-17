@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+	
+	<div class="mt-4 p-5 bg-primary text-white rounded">
+		  <h th:text="${categoria.nombre}"></h1>
+		  <p th:text="${categoria.descripcion}"></p>
+		
+	</div>
+	<section id="section1" class="row d-flex justify-content-center pt-5 mt-5">
+
+		<div class="row">
+			<!-- Muestra la portada de un juego el nombre, la descripción y el precio-->
+			<div th:each="manga : ${mangas}" class="col-12 col-lg-3 my-3">
+				<div class="card shadow-sm separador2">
+					<img th:src="${not (#strings.isEmpty(manga.urlPortada))} 
+                                   ? ${manga.urlPortada} : 'http://placehold.it/48x48'"
+						class="img-responsive icono-categoria" alt="imagen" />
+					<div class="card-body separador2">
+						<h3 class="separador3" th:text="${manga.nombre}">nombre</h3>
+						<p th:text="${manga.autor.nombre}">autor</p>
+						<a th:href="@{/editar/{id}(id=${manga.id})}" class="btn btn-primary bot">Editar</a>
+						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Comprar</a>
+						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Ver más</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer th:replace="~{fragmentos/piePagina::pie}"></footer>
+
+
+</body>
+
+</html>

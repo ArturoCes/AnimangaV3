@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos/head::head}">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+    <nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+
+  <main>
+  <div class="mt-5 pt-5 container-fluid row mr-0 pr-0 " data-aos="flip-right">
+    <div class="col-12 col-lg-4 my-3 mr-0 pr-0 ">
+      <div class="card shadow-sm mr-0 pr-0">
+          <img th:src="${not (#strings.isEmpty(mangaka.urlPortada))} 
+								              ? ${mangaka.urlPortada} : 'http://placehold.it/48x48'"
+								class="img-responsive icono-categoria" alt="imagen1" />
+      </div>
+    </div>
+    <div class="col-12 col-lg-8 my-3 mr-0 pr-0">
+      <div class="card shadow-sm p-2 mr-0">
+      	  <h2 class="p-2" th:text="${mangaka.nombre}">nombre</h2>
+          <p class="separador2 px-2" id="descrip" th:text="${mangaka.biografia}">biografia</p>
+          <p  th:text="${mangaka.edad}" class="sep4 px-2">edad</p>
+          <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary m-2"><a th:href="@{/eliminar/{id}(id=${mangaka.idMangaka})}">Eliminar</a></button>
+              <button type="button" class="btn btn-sm btn-outline-secondary m-2" ><a th:href="@{/editar/{id}(id=${mangaka.idMangaka})}">Editar</a></button>
+              <button type="button" class="btn btn-sm btn-outline-secondary m-2">Añadir al carrito</button>
+            </div>
+      </div>
+    </div>
+  </div>
+    <div class="row mr-0 pr-0" data-aos="zoom-in">
+        <div id="demo" class="carousel slide my-5 col 12 col-lg-12 mr-0 pr-0" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+  </div>
+ </div>
+
+    <script> AOS.init();</script>
+    <footer th:replace="~{fragmentos/piePagina::pie}"></footer>
+</body>
+</html>

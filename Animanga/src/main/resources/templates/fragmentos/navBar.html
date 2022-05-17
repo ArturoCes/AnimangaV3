@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+
+<body>
+
+	<!-- Fixed navbar -->
+
+
+	<!-- Aquí es donde definimos que este encabezado es un fragmento que podremos usar en otras plantillas html
+	cuando usemos el nombre de "encabezado", el usado en th:"encabezado" de la siguiente línea -->
+
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" th:fragment="encabezado">
+		<div class="container-fluid">
+			<a class="navbar-brand" th:href=@{/index}> <img th:src="@{/logo.png}" width="100px" alt="Logo oficial"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="mynavbar">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/manga}">ANIMANGA </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/mangakas}">MANGAKAS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/form}">AÑADIR</a>
+					</li>
+					<li>
+						<div class="dropdown">
+
+							<button type="button"
+								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-muted"
+								data-bs-toggle="dropdown">
+								CATEGORÍAS
+							</button>
+							<ul class="dropdown-menu bg-dark">
+								<th:block th:each="categoria : ${categorias}">
+									<a class="dropdown-item"
+										th:href="@{/manga/categoria/{id}(id=${categoria.idCategoria})}"
+										th:text="${categoria.nombre}"></a>
+								</th:block>
+							</ul>
+						</div>
+				</ul>
+				<form class="d-flex">
+					<input class="form-control me-2 " type="text-muted" name="q" th:value="${param.q}"
+						placeholder="Buscar..."
+							onchange="window.location.href='http://localhost:9000/?q=' + this.value">
+					<button class="btn bot" type="button">BUSCAR</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+</body>
+
+</html>

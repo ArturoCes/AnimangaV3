@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Usamos para incluir la cabecera que tenemos definida como fragmento independiente en el 
+archivo html llamado  head
+OJO: Hay que dar la ruta adecuada
+
+Si te fijas en la estructura de carpetas, dentro de la carpeta templates, hay tres cosas "al mismo nivel":
+- Carpeta fragmentos (dentro de ella están, los fragmentos o partes html: encabezado, head, jsfinal y pie (ojo, index y 
+otrapagina no están dentro de fragmentos, están dentro de templates, al mismo nivel de fragmentos)
+- Archivo html index
+- Archivo html otrapagina
+
+Por tanto, la ruta que usamos en replace (tanto del head como del nav) dentro de las llaves empieza en fragmentos, 
+ya que la raiz para los html por defecto es templates, y por eso, templates, no hay que escribirlo, pero sí el resto de 
+carpetas o subcarpetas que haya dentro.
+
+-->
+
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+
+	<section id="section1" class="row d-flex justify-content-center pt-5 mt-5">
+
+		<div class="row">
+			<!-- Muestra la portada de un juego el nombre, la descripción y el precio-->
+			<div th:each="manga : ${mangas}" class="col-12 col-lg-3 my-3">
+				<div class="card shadow-sm separador2">
+					<img th:src="${not (#strings.isEmpty(manga.urlPortada))} 
+                                   ? ${manga.urlPortada} : 'http://placehold.it/48x48'"
+						class="img-responsive icono-categoria" alt="imagen" />
+					<div class="card-body separador2">
+						<h3 class="separador3" th:text="${manga.nombre}">nombre</h3>
+						<p th:text="${manga.autor.nombre}">autor</p>
+						<a th:href="@{/editar/{id}(id=${manga.id})}" class="btn btn-primary bot">Editar</a>
+						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Comprar</a>
+						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Ver más</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer th:replace="~{fragmentos/piePagina::pie}"></footer>
+
+
+</body>
+
+</html>

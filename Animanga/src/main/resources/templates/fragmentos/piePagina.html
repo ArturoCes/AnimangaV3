@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+
+<body>
+
+<!-- Definimos aquí nuestro fragmento, que en este caso es solo el pie -->
+<footer class="text-center text-lg-start bg-dark text-muted" th:fragment="pie">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div class="me-5 d-none d-lg-block">
+            <span>Mantente en contacto con nosotros:</span>
+        </div>
+
+        <div>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+
+    </section>
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+
+            <div class="row mt-3">
+
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>ANIMANGA
+                    </h6>
+                    <p>
+                        Somos una empresa encargada de mostrar los mejores animes/mangas. Nos sentimos orgullosos de
+                        nuestro
+                        trabajo y esperamos que lo disfruten tanto como nosotros.
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Products
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">Mangas</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Animes</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Novelas Ligeras</a>
+                    </p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Useful links
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">Más sobre nosotros</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Aviso legal</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Cookies</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Contacto
+                    </h6>
+                    <p><i class="fas fa-home me-3"></i> Mordor, Tierra Media</p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        animanga_oficial@gmail.com
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i> + 34 634 567 886 524</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="">animanga_oficial.com</a>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+</footer>
+	
+</body>
