@@ -31,13 +31,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/admin/**", "/gestion/**").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/error")
-                .and().formLogin().loginPage("/").loginProcessingUrl("/login")
-                		.defaultSuccessUrl("/private")
-                		.failureUrl("/login-error").permitAll()
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+                .and().formLogin()
+                .and().logout().logoutSuccessUrl("/");
 
     }
 

@@ -42,7 +42,7 @@ public class UsuarioRepo {
 				.role("USER")
 				.nombre("Usuario ")
 				.apellidos("Normal")
-				.fechaNacimiento(LocalDate.of(1976, 1, 1))
+				.fechaNacimiento(LocalDate.of(2000,4,23))
 				.build()
 				
 				
