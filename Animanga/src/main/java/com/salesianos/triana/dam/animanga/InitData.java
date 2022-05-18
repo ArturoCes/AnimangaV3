@@ -54,7 +54,7 @@
 //		Manga manga1 = Manga.builder().urlPortada(
 //				"https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2022/03/Jujutsu-Kaisen-manga-volumen-19.jpg?resize=1280%2C2000&quality=80&ssl=1")
 //				.nombre("Jujutsu Kaisen").descripcion("Jujutsu kaisen es un manga muy popular en japon ANAZHEE")
-//				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(shonen)
+//				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(shojo)
 //				.autor(mangaka1).build();
 //
 //		mangaRepositorio.save(manga1);	

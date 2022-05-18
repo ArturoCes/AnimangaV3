@@ -11,8 +11,11 @@
 	
 
 	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
-
+	
 	<main>
+	<form class="d-flex">
+				
+					
 		<div class="mt-5 pt-5 container-fluid row mr-0 pr-0 " data-aos="flip-right">
 			<div class="col-12 col-lg-4 my-3 mr-0 pr-0 ">
 				<div class="card shadow-sm mr-0 pr-0 imgSize">
@@ -30,13 +33,13 @@
 					<p id="total"></p>
 
 					<div class="btn-group">
-				
-					
+						<button type="button" class="btn btn-sm btn-success m-2">Añadir al carrito</button>
+					<div sec:authorize="hasRole('ROLE_ADMIN')">
 						<a th:href="@{/eliminar/{id}(id=${manga.id})}"><button type="button"
 								class="btn btn-sm btn-danger m-2">Eliminar</button></a>
 						<a th:href="@{/editar/{id}(id=${manga.id})}"><button type="button"
 								class="btn btn-sm btn-primary m-2">Editar</button></a>
-							<button type="button" class="btn btn-sm btn-success m-2">Añadir al carrito</button>
+							
 					</div>
 				</div>
 			</div>

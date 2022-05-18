@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/extras/spring-security">
-
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <head th:replace="~{fragmentos/head::head}">
@@ -21,11 +21,11 @@
 					<img th:src="${not (#strings.isEmpty(manga.urlPortada))} 
                                    ? ${manga.urlPortada} : 'http://placehold.it/48x48'"
 						class="img-responsive icono-categoria" alt="imagen" />
-						
-						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Ver más</a>
-					<div class="card-body separador2" sec:authorize="hasRole('ROLE_ADMIN')">
 						<h3 class="separador3" th:text="${manga.nombre}">nombre</h3>
 						<p th:text="${manga.autor.nombre}">autor</p>
+						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Ver más</a>
+					<div class="card-body separador2" sec:authorize="hasRole('ROLE_ADMIN')">
+						
 				
 						<a th:href="@{/editar/{id}(id=${manga.id})}" class="btn btn-primary bot">Editar</a>
 						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Comprar</a>
