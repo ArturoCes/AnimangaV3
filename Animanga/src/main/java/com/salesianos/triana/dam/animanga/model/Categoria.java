@@ -30,6 +30,7 @@ public class Categoria {
 	private String descripcion;
 	@OneToMany
 	private List<Manga> listaMangas;
+	
 	public Categoria(String nombre, String descripcion) {
 		super();
 		this.nombre = nombre;

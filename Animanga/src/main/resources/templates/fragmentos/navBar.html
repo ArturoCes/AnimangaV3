@@ -51,8 +51,9 @@
 							</ul>
 						</div>
 					<li class="nav-item">
-						<a class="nav-link text-light" th:href="@{/login}"><button class="btn bot" type="button">INICIAR
+						<a class="nav-link text-light" th:href="@{/login}" sec:authorize="!isAuthenticated()"> <button class="btn bot" type="button">INICIAR
 								SESIÓN</button></a>
+								<a class="nav-link text-light" th:href="@{/logout}" sec:authorize="isAuthenticated()"> <button class="btn bot" type="button">CERRAR SESIÓN</button></a>
 					</li>
 				</ul>
 				<form class="d-flex">
