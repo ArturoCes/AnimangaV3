@@ -80,10 +80,10 @@ public class MangakaController {
 		return "formulario";
 	}
 
-
 	@GetMapping("/form")
 	public String muestraFormulario(Model model) {
 		model.addAttribute("mangaka", new Mangaka());
-		return "formulario";
+		return "formularioMangaka";
 	}
+	
 }

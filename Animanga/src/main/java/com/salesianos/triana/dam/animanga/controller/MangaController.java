@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import com.salesianos.triana.dam.animanga.model.Mangaka;
 import com.salesianos.triana.dam.animanga.repository.IMangakaRepositorio;
 import com.salesianos.triana.dam.animanga.service.CategoriaService;
 import com.salesianos.triana.dam.animanga.service.MangaService;
+import com.salesianos.triana.dam.animanga.service.MangakaService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,6 +30,8 @@ public class MangaController {
 	private final MangaService mangaService;
 	private final CategoriaService categoriaService;
 	private final IMangakaRepositorio mangakaRepository;
+	@Autowired
+	private MangakaService mangakaService;
 
 	@GetMapping({ "/", "/manga" })
 	public String index(Model model, @RequestParam("q") Optional<String> consulta) {
@@ -125,6 +129,10 @@ public class MangaController {
 	public String lista(Model model) {
 		model.addAttribute("mangas", mangaService.findAll());
 		return "lista";
+	}
+	@ModelAttribute("mangakas")
+	public List<Mangaka> mangakas() {
+		return mangakaService.findAll();
 	}
 
 }

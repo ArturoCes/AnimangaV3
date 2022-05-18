@@ -31,10 +31,7 @@
 					<li class="nav-item text-light">
 						<a class="nav-link text-light" th:href="@{/mangaka/mangakas}">MANGAKAS</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link text-light" th:href="@{/form}">AÑADIR</a>
-					</li>
-					<li>
+
 						<div class="dropdown">
 
 							<button type="button"
@@ -52,7 +49,25 @@
 						</div>
 
 				</ul>
+					<div class="dropdown">
 
+							<button type="button"
+								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
+								data-bs-toggle="dropdown">
+								AÑADIR
+							</button>
+							<ul class="dropdown-menu bg-dark text-light">
+								
+									<a class="dropdown-item text-light"
+										th:href="@{/form}">Mangas</a>
+										<a class="dropdown-item text-light"
+										th:href="@{/mangaka/form}">Mangakas</a>
+										<a class="dropdown-item text-light"
+										th:href="@{/categoria/form}">Categorias</a>
+										
+							
+							</ul>
+						</div>
 				<form class="d-flex">
 
 					<input class="form-control me-2 " type="text-muted" name="q" th:value="${param.q}"

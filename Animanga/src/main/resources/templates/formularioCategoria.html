@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<header>
+		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+	</header>
+	<main class="asistencia">
+		<section>
+			<article>
+				<div id="contenedor" class="container-fluid">
+					<div class="container">
+						<div class="col-12 col-lg-8 order-1">
+							<div class="well well-sm">
+								<form class="form-horizontal needs-validation" novalidate method="POST"
+									th:action="@{/categoria/submit/{id}(id=${categoria.idCategoria})}"
+									th:object="${categoria}">
+									<fieldset class="mt-5">
+
+										<div class="form-group">
+											<div class="col-lg-10 mt-5">
+												<label for="nombre">Nombre</label>
+												<input th:field="*{nombre}" id="nombre" name="nombre" type="text"
+													placeholder="Nombre" class="form-control" required>
+												<div class="valid-feedback">correcto</div>
+												<div class="invalid-feedback">Tienes que rellenar este campo</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-lg-8">
+												<label for="descripcion">Descripción</label>
+												<textarea th:field="*{descripcion}" class="form-control"
+													id="descripcion" name="descripcion" placeholder="Descripción"
+													rows="7" required></textarea>
+												<div class="valid-feedback">correcto</div>
+												<div class="invalid-feedback">Tienes que rellenar este campo</div>
+											</div>
+										</div>
+
+										<div class="form-group d-flex m-3">
+											<button type="reset" class="btn btn-lg btn-outline-primary">Borrar
+												todo</button>
+											<button type="submit" class="btn btn-lg btn-outline-primary">Enviar</button>
+										</div>
+
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</article>
+		</section>
+
+	</main>
+	<footer th:replace="~{fragmentos/piePagina::pie}"></footer>
+</body>
+
+</html>

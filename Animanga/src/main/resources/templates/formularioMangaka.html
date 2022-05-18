@@ -18,7 +18,7 @@
 						<div class="col-12 col-lg-8 order-1">
 							<div class="well well-sm">
 								<form class="form-horizontal needs-validation" novalidate method="POST"
-									th:action="@{/submit/{id}(id=${manga.id})}" th:object="${manga}">
+									th:action="@{/mangaka/submit/{id}(id=${mangaka.idMangaka})}" th:object="${mangaka}">
 									<fieldset class="mt-5">
 										<div class="form-group">
 											<div class="col-lg-10 mt-5">
@@ -40,68 +40,27 @@
 										</div>
 										<div class="form-group">
 											<div class="col-lg-8">
-												<label for="descripcion">Descripción</label>
-												<textarea th:field="*{descripcion}" class="form-control"
-													id="descripcion" name="descripcion" placeholder="Descripción"
-													rows="7" required></textarea>
+												<label for="edad">Edad</label>
+												<textarea th:field="*{edad}" class="form-control" id="descripcion"
+													name="descripcion" placeholder="Descripción" rows="7"
+													required></textarea>
 												<div class="valid-feedback">correcto</div>
 												<div class="invalid-feedback">Tienes que rellenar este campo</div>
 											</div>
 										</div>
 										<div class="form-group col-lg-10">
-											<label for="editorial">Editorial</label>
-											<input th:field="*{editorial}" id="editorial" name="editorial" type="text"
+											<label for="Biografia">Biografia</label>
+											<input th:field="*{biografia}" id="biografia" name="biografia" type="text"
 												placeholder="Editorial" class="form-control" required>
 											<div class="valid-feedback">correcto</div>
 											<div class="invalid-feedback">Tienes que rellenar este campo</div>
-										</div>
-
-
-										<div class="form-group col-lg-10">
-											<label for="numPags">Número de páginas</label>
-											<input th:field="*{numPags}" id="numPags" name="numPags" type="number"
-												placeholder="Número de páginas" class="form-control"
-												pattern='[0-9]+(\.[0-9][0-9]?)?' required>
-											<div class="valid-feedback">correcto</div>
-											<div class="invalid-feedback">Tienes que introducir números en este campo
-											</div>
-										</div>
-										<div class="form-group col-lg-10">
-											<label for="isbn10">ISBN 10</label>
-											<input th:field="*{isbn10}" id="isbn10" name="isbn10" type="number"
-												placeholder="ISBN" class="form-control" required>
-										</div>
-										<div class="form-group col-lg-10">
-											<label for="pesoProducto">Peso producto</label>
-											<input th:field="*{pesoProducto}" id="pesoProducto" name="pesoProducto"
-												type="number" placeholder="pesoProducto" class="form-control" required>
-										</div>
-
-										<label>Categorias</label>
-										<div class="form-check ml-3">
-											<select th:field="*{categoria}">
-												<option value="-1">---</option>
-												<option th:each="categoria : ${categorias}"
-													th:value="${categoria.idCategoria}" th:text="${categoria.nombre}">
-													Categoria
-												</option>
-											</select>
-										</div>
-										<label>Autor</label>
-										<div class="form-check ml-3">
-											<select th:field="*{autor}">
-												<option value="-1">---</option>
-												<option th:each="mangaka : ${mangakas}"
-													th:value="${mangaka.idMangaka}" th:text="${mangaka.nombre}">
-													Mangaka
-												</option>
-											</select>
 										</div>
 										<div class="form-group d-flex m-3">
 											<button type="reset" class="btn btn-lg btn-outline-primary">Borrar
 												todo</button>
 											<button type="submit" class="btn btn-lg btn-outline-primary">Enviar</button>
 										</div>
+
 									</fieldset>
 								</form>
 							</div>

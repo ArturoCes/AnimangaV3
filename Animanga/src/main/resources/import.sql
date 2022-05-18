@@ -7,6 +7,8 @@ insert into categoria(id_categoria,nombre,descripcion)values (3,'Seinen','Seguro
 
 insert into mangaka (id_mangaka,nombre,edad,url_portada,biografia) values (1,'Eiichiro Oda',47,'https://www.friking.es/img/cms/eiichiro_oda_one_piece-png_673822677.png','Eiichiro Oda es un mangaka japonés conocido por su serie de manga One Piece, la cual ha vendido más de 490 millones de copias en todo el mundo y ha conseguido un récord Guinness al ser el manga con mayor cantidad de copias editadas de la misma obra de cómic realizado por un único autor en todo el mundo');
 
+insert into mangaka (id_mangaka,nombre,edad,url_portada,biografia) values (2,'Masashi Kishimoto',47,'https://www.friking.es/img/cms/eiichiro_oda_one_piece-png_673822677.png','Eiichiro Oda es un mangaka japonés conocido por su serie de manga One Piece, la cual ha vendido más de 490 millones de copias en todo el mundo y ha conseguido un récord Guinness al ser el manga con mayor cantidad de copias editadas de la misma obra de cómic realizado por un único autor en todo el mundo');
+
 
 
 insert into manga (id,url_portada, precio,nombre, descripcion,editorial,num_pags,isbn10,peso_producto, autor_id_mangaka,categoria_id_categoria)values (1,'https://i.ibb.co/m03TcGw/Volume-0.webp',4,'Jujutsu Kaisen','descripcion de Jujutsu Kaisen','norma Editorial',7,'123122311',0.3,1,1);
