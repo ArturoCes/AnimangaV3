@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianos.triana.dam.animanga.model.Categoria;
+import com.salesianos.triana.dam.animanga.model.Manga;
 import com.salesianos.triana.dam.animanga.repository.ICategoriaRepositorio;
 import com.salesianos.triana.dam.animanga.service.CategoriaService;
 
@@ -40,6 +41,20 @@ public class CategoriaController {
 		
 		categoriaService.save(categoria);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/gestionCategoria")
+	public String lista(Model model) {
+		model.addAttribute("categorias", categoriaService.findAll());
+		return "listaCategorias";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String editar(@PathVariable("id") Long categoriaId, Model model) {
+		Categoria c = categoriaService.findById(categoriaId);
+		model.addAttribute(c);
+
+		return "formularioCategoria";
 	}
 		
 		

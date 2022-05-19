@@ -68,6 +68,24 @@
 							
 							</ul>
 						</div>
+						<div class="dropdown">
+
+							<button type="button"
+								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
+								data-bs-toggle="dropdown">
+								OPCIONES
+							</button>
+							<ul class="dropdown-menu bg-dark text-light">
+						
+										<a class="dropdown-item text-light"
+										th:href="@{/lista}">Mangas</a>
+										<a class="dropdown-item text-light"
+										th:href="@{/categoria/gestionCategoria}">Categorias</a>
+										
+							
+							</ul>
+						</div>
+			
 				<form class="d-flex">
 
 					<input class="form-control me-2 " type="text-muted" name="q" th:value="${param.q}"
