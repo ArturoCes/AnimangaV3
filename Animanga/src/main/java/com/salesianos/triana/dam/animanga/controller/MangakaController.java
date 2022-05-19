@@ -77,7 +77,7 @@ public class MangakaController {
 		Mangaka m = mangakaService.findById(mangakaId);
 		model.addAttribute(m);
 
-		return "formulario";
+		return "formularioMangaka";
 	}
 
 	@GetMapping("/form")
