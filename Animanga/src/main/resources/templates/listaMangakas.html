@@ -79,7 +79,7 @@
 		<div class="row">
 			<div class="col-md-offset-1 col-md-10">
 				<div class="pull-right">
-					<a href="formularioCategoria.html" th:href="@{/categoria/form}" class="btn bot">Nuevo
+					<a href="formularioCategoria.html" th:href="@{/mangaka/form}" class="btn bot">Nuevo
 						producto</a>
 
 				</div>
@@ -94,17 +94,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="categoria : ${categorias}">
-							<td th:text="${categoria.nombre}"> </td>
+						<tr th:each="mangaka : ${mangakas}">
+							<td th:text="${mangaka.nombre}"> </td>
 
 							<td class="operaciones"><a href="#"
-									th:href="@{/categoria/editar/{id}(id=${categoria.id})}"
+									th:href="@{/mangaka/editar/{id}(id=${mangaka.id})}"
 									class="btn bot">Editar</a>
 								<button type="button" class="btn btn-danger" data-bs-toggle="modal"
-									th:attr="data-bs-target='#deleteModal'+ '-' + ${categoria.id}"> Borrar
+									th:attr="data-bs-target='#deleteModal'+ '-' + ${mangaka.id}"> Borrar
 								</button>
 
-								<div class="modal fade" th:id="deleteModal + '-'+${categoria.id}">
+								<div class="modal fade" th:id="deleteModal + '-'+${mangaka.id}">
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -119,7 +119,7 @@
 												<p>¿Está usted seguro de borrar este producto?</p>
 												<button type="button" class="btn btn-default"
 													data-dismiss="modal">No</button>
-												<a th:href="@{/categoria/eliminar/{id}(id=${categoria.id})}"
+												<a th:href="@{/mangaka/eliminar/{id}(id=${mangaka.id})}"
 													class="btn btn-danger">Sí</a>
 											</div>
 										</div>

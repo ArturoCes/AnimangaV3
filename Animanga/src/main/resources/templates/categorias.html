@@ -17,7 +17,7 @@
 	<section id="section1" class="row d-flex justify-content-center pt-5 mt-5">
 
 		<div class="row">
-			<!-- Muestra la portada de un juego el nombre, la descripción y el precio-->
+
 			<div th:each="manga : ${mangas}" class="col-12 col-lg-3 my-3">
 				<div class="card shadow-sm separador2">
 					<img th:src="${not (#strings.isEmpty(manga.urlPortada))} 

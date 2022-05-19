@@ -11,7 +11,7 @@ import com.salesianos.triana.dam.animanga.service.base.BaseService;
 @Service
 public class MangaService extends BaseService<Manga, Long, IMangaRepositorio> {
 	public List <Manga>findByCategoria(Long id){
-		return this.repositorio.findByCategoriaIdCategoria(id);
+		return this.repositorio.findByCategoriaId(id);
 		
 		
 	}

@@ -37,8 +37,8 @@ carpetas o subcarpetas que haya dentro.
 					<div class="card-body separador2">
 						<h3 class="separador3" th:text="${mangaka.nombre}">nombre</h3>
 						<p th:text="${mangaka.edad}">edad</p>
-						<a th:href="@{/mangaka/editar/{id}(id=${mangaka.idMangaka})}" class="btn btn-primary bot">Editar</a>
-						<a th:href="@{/mangaka/mangaka/{id}(id=${mangaka.idMangaka})}" class="btn btn-primary bot ">Ver más</a>
+						<a th:href="@{/mangaka/editar/{id}(id=${mangaka.id})}" class="btn btn-primary bot">Editar</a>
+						<a th:href="@{/mangaka/mangaka/{id}(id=${mangaka.id})}" class="btn btn-primary bot ">Ver más</a>
 
 					</div>
 				</div>

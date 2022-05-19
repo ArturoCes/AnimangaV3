@@ -23,6 +23,11 @@ import com.salesianos.triana.dam.animanga.service.MangakaService;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 
+ * @author Arturo Céspedes Pedrazas
+ *
+ */
 @Controller
 @RequiredArgsConstructor
 
@@ -43,16 +48,16 @@ public class MangaController {
 
 			}
 			model.addAttribute("mangas", mangas);
-			
+
 		} else {
 			mangas = mangaService.findByNombre(consulta.get());
 		}
-	
-		model.addAttribute("mangas", mangas);		
 
-		return"index";
+		model.addAttribute("mangas", mangas);
 
-}
+		return "index";
+
+	}
 
 	@GetMapping("/manga/{id}")
 	public String mangaporId(@PathVariable("id") Long mangaId, Model model) {
@@ -61,20 +66,19 @@ public class MangaController {
 
 		return "manga";
 	}
-	
 
 	@GetMapping("/manga/categoria/{id}")
 	public String mangaPorCat(Model model, @PathVariable("id") Long catId) {
-		
+
 		Categoria c = categoriaService.findById(catId);
-		
+
 		List<Manga> mangas = new ArrayList<>();
 		for (Manga manga : mangaService.findByCategoria(catId)) {
 			mangas.add(manga);
 
 		}
 		model.addAttribute("mangas", mangas);
-		model.addAttribute("categoria",c);
+		model.addAttribute("categoria", c);
 
 		return "categorias";
 	}
@@ -93,9 +97,9 @@ public class MangaController {
 
 	@PostMapping({ "/submit", "/submit/{id}" })
 	public String procesaFormulario(@ModelAttribute("manga") Manga manga) {
-		mangakaRepository.save(manga.getAutor());
+
 		mangaService.save(manga);
-		return "redirect:/";
+		return "redirect:/lista";
 	}
 
 	@GetMapping("/editar/{id}")
@@ -130,6 +134,7 @@ public class MangaController {
 		model.addAttribute("mangas", mangaService.findAll());
 		return "lista";
 	}
+
 	@ModelAttribute("mangakas")
 	public List<Mangaka> mangakas() {
 		return mangakaService.findAll();

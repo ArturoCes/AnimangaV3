@@ -82,7 +82,7 @@
 											<select th:field="*{categoria}">
 												<option value="-1">---</option>
 												<option th:each="categoria : ${categorias}"
-													th:value="${categoria.idCategoria}" th:text="${categoria.nombre}">
+													th:value="${categoria.id}" th:text="${categoria.nombre}">
 													Categoria
 												</option>
 											</select>
@@ -92,7 +92,7 @@
 											<select th:field="*{autor}">
 												<option value="-1">---</option>
 												<option th:each="mangaka : ${mangakas}"
-													th:value="${mangaka.idMangaka}" th:text="${mangaka.nombre}">
+													th:value="${mangaka.id}" th:text="${mangaka.nombre}">
 													Mangaka
 												</option>
 											</select>

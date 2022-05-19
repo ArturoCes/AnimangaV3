@@ -26,12 +26,12 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping("/mangaka")
 public class MangakaController {
-	
+
 	@Autowired
-	private  MangakaService mangakaService;
+	private MangakaService mangakaService;
 	@Autowired
 	private CategoriaService categoriaService;
-	
+
 	@GetMapping("/mangakas")
 	public String index(Model model, @RequestParam("q") Optional<String> consulta) {
 
@@ -46,11 +46,12 @@ public class MangakaController {
 		}
 		return "mangakas";
 	}
+
 	@ModelAttribute("categorias")
 	public List<Categoria> categorias() {
 		return categoriaService.findAll();
 	}
-	
+
 	@GetMapping("/mangaka/{id}")
 	public String mangaporId(@PathVariable("id") Long mangakaId, Model model) {
 		Mangaka m = mangakaService.findById(mangakaId);
@@ -58,6 +59,7 @@ public class MangakaController {
 
 		return "mangaka";
 	}
+
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") Long mangakaId, Model model) {
 		Mangaka m = mangakaService.findById(mangakaId);
@@ -67,9 +69,9 @@ public class MangakaController {
 
 	@PostMapping({ "/submit", "/submit/{id}" })
 	public String procesaFormulario(@ModelAttribute("manga") Mangaka mangaka) {
-		
+
 		mangakaService.save(mangaka);
-		return "redirect:/";
+		return "redirect:/mangaka/lista";
 	}
 
 	@GetMapping("/editar/{id}")
@@ -85,5 +87,11 @@ public class MangakaController {
 		model.addAttribute("mangaka", new Mangaka());
 		return "formularioMangaka";
 	}
-	
+
+	@GetMapping("/lista")
+	public String lista(Model model) {
+		model.addAttribute("mangakas", mangakaService.findAll());
+		return "listaMangakas";
+
+	}
 }

@@ -18,8 +18,7 @@
 						<div class="col-12 col-lg-8 order-1">
 							<div class="well well-sm">
 								<form class="form-horizontal needs-validation" novalidate method="POST"
-									th:action="@{/categoria/submit/{id}(id=${categoria.idCategoria})}"
-									th:object="${categoria}">
+									th:action="@{/categoria/submit/{id}(id=${categoria.id})}" th:object="${categoria}">
 									<fieldset class="mt-5">
 
 										<div class="form-group">

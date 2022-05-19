@@ -42,14 +42,14 @@
 							<ul class="dropdown-menu bg-dark text-light">
 								<th:block th:each="categoria : ${categorias}">
 									<a class="dropdown-item text-light"
-										th:href="@{/manga/categoria/{id}(id=${categoria.idCategoria})}"
+										th:href="@{/manga/categoria/{id}(id=${categoria.id})}"
 										th:text="${categoria.nombre}"></a>
 								</th:block>
 							</ul>
 						</div>
 
 				</ul>
-					<div class="dropdown">
+					<div class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
 
 							<button type="button"
 								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
@@ -65,10 +65,11 @@
 										<a class="dropdown-item text-light"
 										th:href="@{/categoria/form}">Categorias</a>
 										
+										
 							
 							</ul>
 						</div>
-						<div class="dropdown">
+						<div class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
 
 							<button type="button"
 								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
@@ -81,6 +82,8 @@
 										th:href="@{/lista}">Mangas</a>
 										<a class="dropdown-item text-light"
 										th:href="@{/categoria/gestionCategoria}">Categorias</a>
+											<a class="dropdown-item text-light"
+										th:href="@{/mangaka/lista}">Mangakas</a>
 										
 							
 							</ul>
