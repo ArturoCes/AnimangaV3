@@ -36,15 +36,17 @@ public class Mangaka {
 	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER)
 	private List<Manga> obras = new ArrayList<>();
 	private String urlPortada;
+	private boolean destacado;
 	@Column(length = 1000)
 	private String biografia;
 
-	public Mangaka(String nombre, int edad, String urlPortada, String biografia) {
+	public Mangaka(String nombre, int edad, String urlPortada, String biografia,Boolean destacado) {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
 		this.urlPortada = urlPortada;
 		this.biografia = biografia;
+		this.destacado= destacado;
 	}
 
 }

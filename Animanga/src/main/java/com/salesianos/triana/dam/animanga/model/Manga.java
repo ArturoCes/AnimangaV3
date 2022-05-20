@@ -1,11 +1,15 @@
 package com.salesianos.triana.dam.animanga.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,6 +43,8 @@ public class Manga {
 	private String descripcion;
 	private String editorial;
 	private int numPags;
+
+
 	private String isbn10;
 	private double pesoProducto;
 	@EqualsAndHashCode.Exclude
@@ -50,6 +56,8 @@ public class Manga {
 
 	@ManyToOne
 	private Mangaka autor;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate fecha;
 
 	/**
 	 * 

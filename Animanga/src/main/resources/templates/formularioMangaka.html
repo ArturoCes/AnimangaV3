@@ -42,24 +42,30 @@
 											<div class="col-lg-8">
 												<label for="edad">Edad</label>
 												<input th:field="*{edad}" class="form-control" id="descripcion"
-													name="descripcion" placeholder="Descripción" 
-													required></input>
+													name="descripcion" placeholder="Descripción" required></input>
 												<div class="valid-feedback">correcto</div>
 												<div class="invalid-feedback">Tienes que rellenar este campo</div>
 											</div>
 										</div>
 										<div class="form-group col-lg-10">
 											<label for="Biografia">Biografia</label>
-											<textarea th:field="*{biografia}" id="biografia" name="biografia" type="text"
-												placeholder="Editorial" class="form-control" required></textarea>
+											<textarea th:field="*{biografia}" id="biografia" name="biografia"
+												type="text" placeholder="Editorial" class="form-control"
+												required></textarea>
 											<div class="valid-feedback">correcto</div>
 											<div class="invalid-feedback">Tienes que rellenar este campo</div>
 										</div>
-										<div class="form-group d-flex m-3">
-											<button type="reset" class="btn btn-lg btn-outline-primary">Borrar
-												todo</button>
-											<button type="submit" class="btn btn-lg btn-outline-primary">Enviar</button>
-										</div>
+
+										<div class="form-check ml-3">
+											<input th:field="*{destacado}" class="form-check-input" type="checkbox"
+												id="gridCheck">
+											<label class="form-check-label" for="gridCheck">Destacado</label>
+											<div class="form-group d-flex m-3">
+												<button type="reset" class="btn btn-lg btn-outline-primary">Borrar
+													todo</button>
+												<button type="submit"
+													class="btn btn-lg btn-outline-primary">Enviar</button>
+											</div>
 
 									</fieldset>
 								</form>

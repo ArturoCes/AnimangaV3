@@ -1,5 +1,7 @@
 package com.salesianos.triana.dam.animanga;
 
+import java.time.LocalDate;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +57,7 @@ public class InitData {
 				"https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2022/03/Jujutsu-Kaisen-manga-volumen-19.jpg?resize=1280%2C2000&quality=80&ssl=1")
 				.nombre("Jujutsu Kaisen").descripcion("Jujutsu kaisen es un manga muy popular en japon ANAZHEE")
 				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(hentai)
+				.fecha(LocalDate.now())
 				.autor(mangaka1).build();
 
 		mangaRepositorio.save(manga1);	
@@ -63,6 +66,7 @@ public class InitData {
 				"https://somoskudasai.com/wp-content/uploads/2021/09/Vol-17.jpg")
 				.nombre("Jujutsu Kaisen").descripcion("Jujutsu kaisen es un manga muy popular en japon ANAZHEE")
 				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(josei)
+				.fecha(LocalDate.now())
 				.autor(mangaka1).build();
 
 		mangaRepositorio.save(manga2);
@@ -71,6 +75,7 @@ public class InitData {
 				"https://pm1.narvii.com/6427/ad1c18ec21693a01d8150264abf6ff18f7a5489c_hq.jpg")
 				.nombre("One Piece").descripcion("Jujutsu kaisen es un manga muy popular en japon ANAZHEE")
 				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(josei)
+				.fecha(LocalDate.now())
 				.autor(mangaka1).build();
 
 		mangaRepositorio.save(manga3);
@@ -79,6 +84,7 @@ public class InitData {
 				"https://i.pinimg.com/564x/89/f1/d2/89f1d2069fa542c70bf68c6b3430e337.jpg")
 				.nombre("Naruto").descripcion("Jujutsu kaisen es un manga muy popular en japon ANAZHEE")
 				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(hentai)
+				.fecha(LocalDate.now())
 				.autor(mangaka1).build();
 
 		mangaRepositorio.save(manga4);
@@ -86,6 +92,7 @@ public class InitData {
 		Manga manga5 = Manga.builder().urlPortada(
 				"https://i.pinimg.com/originals/45/0e/33/450e334da7aaafc7cda718409e5c226c.jpg")
 				.nombre("Naruto").descripcion("Jujutsu kaisen es un manga muy popular en japon ANAZHEE")
+				.fecha(LocalDate.now())
 				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(kodomo)
 				.autor(mangaka1).build();
 

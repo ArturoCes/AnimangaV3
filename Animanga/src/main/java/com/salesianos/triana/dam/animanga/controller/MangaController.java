@@ -146,5 +146,16 @@ public class MangaController {
 	public List<Mangaka> mangakas() {
 		return mangakaService.findAll();
 	}
+	@GetMapping("/destacados" )
+	public String destacados(Model model) {
+
+		List<Manga> mangas = mangaService.buscarDestacados();
+		
+
+		model.addAttribute("mangas", mangas);
+
+		return "index";
+
+	}
 
 }

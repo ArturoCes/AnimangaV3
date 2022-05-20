@@ -29,4 +29,8 @@ public class MangaService extends BaseService<Manga, Long, IMangaRepositorio> {
 	public int numeroProductosCategoria(Categoria categoria) {
 		return repositorio.findNumProductosByCategoria(categoria);
 	}
+	
+	public List<Manga>buscarDestacados(){
+		return repositorio.findByDestacado();
+	}
 }
