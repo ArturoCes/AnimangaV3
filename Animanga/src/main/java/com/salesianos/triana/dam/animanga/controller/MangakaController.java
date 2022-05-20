@@ -18,6 +18,7 @@ import com.salesianos.triana.dam.animanga.model.Categoria;
 import com.salesianos.triana.dam.animanga.model.Manga;
 import com.salesianos.triana.dam.animanga.model.Mangaka;
 import com.salesianos.triana.dam.animanga.service.CategoriaService;
+import com.salesianos.triana.dam.animanga.service.MangaService;
 import com.salesianos.triana.dam.animanga.service.MangakaService;
 
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,8 @@ public class MangakaController {
 	private MangakaService mangakaService;
 	@Autowired
 	private CategoriaService categoriaService;
+	@Autowired 
+	private MangaService mangaService;
 
 	@GetMapping("/mangakas")
 	public String index(Model model, @RequestParam("q") Optional<String> consulta) {
@@ -54,17 +57,28 @@ public class MangakaController {
 
 	@GetMapping("/mangaka/{id}")
 	public String mangaporId(@PathVariable("id") Long mangakaId, Model model) {
-		Mangaka m = mangakaService.findById(mangakaId);
-		model.addAttribute("mangaka", m);
+		Optional<Mangaka> m = mangakaService.findById(mangakaId);
+		if (m.isPresent()) {
+			model.addAttribute("mangaka", m.get());
+		}
 
 		return "mangaka";
 	}
 
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") Long mangakaId, Model model) {
-		Mangaka m = mangakaService.findById(mangakaId);
-		mangakaService.delete(m);
-		return "redirect:/";
+
+		Optional<Mangaka> m = mangakaService.findById(mangakaId);
+		if (m.isPresent()) {
+			for (Manga manga : m.get().getObras()) {
+				manga.setAutor(null);
+				mangaService.save(manga);
+			}
+			mangakaService.deleteById(mangakaId);
+		}	
+		
+
+		return "redirect:/mangaka/lista";
 	}
 
 	@PostMapping({ "/submit", "/submit/{id}" })
@@ -76,9 +90,10 @@ public class MangakaController {
 
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable("id") Long mangakaId, Model model) {
-		Mangaka m = mangakaService.findById(mangakaId);
-		model.addAttribute(m);
-
+		Optional<Mangaka> m = mangakaService.findById(mangakaId);
+		if(m.isPresent()) {
+			model.addAttribute(m.get());
+		}
 		return "formularioMangaka";
 	}
 

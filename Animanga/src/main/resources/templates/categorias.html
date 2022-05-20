@@ -26,9 +26,11 @@
 					<div class="card-body separador2">
 						<h3 class="separador3" th:text="${manga.nombre}">nombre</h3>
 						<p th:text="${manga.autor.nombre}">autor</p>
+						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Ver más</a>
+						<div class="card-body separador2" sec:authorize="hasRole('ROLE_ADMIN')">
 						<a th:href="@{/editar/{id}(id=${manga.id})}" class="btn btn-primary bot">Editar</a>
 						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Comprar</a>
-						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Ver más</a>
+						
 
 					</div>
 				</div>

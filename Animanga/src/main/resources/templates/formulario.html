@@ -6,7 +6,7 @@
 	<title>Insert title here</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<header>
 		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
 	</header>
@@ -59,8 +59,17 @@
 
 										<div class="form-group col-lg-10">
 											<label for="numPags">Número de páginas</label>
-											<input th:field="*{numPags}" id="numPags" name="numPags" type="number"
+											<input th:field="*{numPags}" id="numPags" name="numPags" type="number" min="1"
 												placeholder="Número de páginas" class="form-control"
+												pattern='[0-9]+(\.[0-9][0-9]?)?' required>
+											<div class="valid-feedback">correcto</div>
+											<div class="invalid-feedback">Tienes que introducir números en este campo
+											</div>
+										</div>
+										<div class="form-group col-lg-10">
+											<label for="precio">Precio</label>
+											<input th:field="*{precio}" id="precio" name="precio" type="number" min="1"
+												placeholder="precio" class="form-control"
 												pattern='[0-9]+(\.[0-9][0-9]?)?' required>
 											<div class="valid-feedback">correcto</div>
 											<div class="invalid-feedback">Tienes que introducir números en este campo

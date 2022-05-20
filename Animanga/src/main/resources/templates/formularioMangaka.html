@@ -6,7 +6,7 @@
 	<title>Insert title here</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<header>
 		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
 	</header>
@@ -41,17 +41,17 @@
 										<div class="form-group">
 											<div class="col-lg-8">
 												<label for="edad">Edad</label>
-												<textarea th:field="*{edad}" class="form-control" id="descripcion"
-													name="descripcion" placeholder="Descripción" rows="7"
-													required></textarea>
+												<input th:field="*{edad}" class="form-control" id="descripcion"
+													name="descripcion" placeholder="Descripción" 
+													required></input>
 												<div class="valid-feedback">correcto</div>
 												<div class="invalid-feedback">Tienes que rellenar este campo</div>
 											</div>
 										</div>
 										<div class="form-group col-lg-10">
 											<label for="Biografia">Biografia</label>
-											<input th:field="*{biografia}" id="biografia" name="biografia" type="text"
-												placeholder="Editorial" class="form-control" required>
+											<textarea th:field="*{biografia}" id="biografia" name="biografia" type="text"
+												placeholder="Editorial" class="form-control" required></textarea>
 											<div class="valid-feedback">correcto</div>
 											<div class="invalid-feedback">Tienes que rellenar este campo</div>
 										</div>

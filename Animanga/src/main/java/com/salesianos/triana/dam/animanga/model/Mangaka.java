@@ -33,7 +33,7 @@ public class Mangaka {
 	@Builder.Default
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER)
 	private List<Manga> obras = new ArrayList<>();
 	private String urlPortada;
 	@Column(length = 1000)

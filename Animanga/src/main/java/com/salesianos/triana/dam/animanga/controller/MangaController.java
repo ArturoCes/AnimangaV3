@@ -61,8 +61,10 @@ public class MangaController {
 
 	@GetMapping("/manga/{id}")
 	public String mangaporId(@PathVariable("id") Long mangaId, Model model) {
-		Manga m = mangaService.findById(mangaId);
-		model.addAttribute("manga", m);
+		Optional<Manga> m = mangaService.findById(mangaId);
+		if (m.isPresent()) {
+			model.addAttribute("manga", m.get());
+		}
 
 		return "manga";
 	}
@@ -70,16 +72,16 @@ public class MangaController {
 	@GetMapping("/manga/categoria/{id}")
 	public String mangaPorCat(Model model, @PathVariable("id") Long catId) {
 
-		Categoria c = categoriaService.findById(catId);
+		Optional<Categoria> c = categoriaService.findById(catId);
+		if (c.isPresent()) {
+			List<Manga> mangas = new ArrayList<>();
+			for (Manga manga : mangaService.findByCategoria(catId)) {
+				mangas.add(manga);
 
-		List<Manga> mangas = new ArrayList<>();
-		for (Manga manga : mangaService.findByCategoria(catId)) {
-			mangas.add(manga);
-
+			}
+			model.addAttribute("mangas", mangas);
+			model.addAttribute("categoria", c.get());
 		}
-		model.addAttribute("mangas", mangas);
-		model.addAttribute("categoria", c);
-
 		return "categorias";
 	}
 
@@ -90,8 +92,11 @@ public class MangaController {
 
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") Long mangaId, Model model) {
-		Manga m = mangaService.findById(mangaId);
-		mangaService.delete(m);
+		Optional<Manga> m = mangaService.findById(mangaId);
+		if (m.isPresent()) {
+			mangaService.deleteById(mangaId);
+		}
+
 		return "redirect:/";
 	}
 
@@ -104,8 +109,10 @@ public class MangaController {
 
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable("id") Long mangaId, Model model) {
-		Manga m = mangaService.findById(mangaId);
-		model.addAttribute(m);
+		Optional<Manga> m = mangaService.findById(mangaId);
+		if (m.isPresent()) {
+			model.addAttribute(m.get());
+		}
 
 		return "formulario";
 	}
