@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.salesianos.triana.dam.animanga.model.Categoria;
 import com.salesianos.triana.dam.animanga.model.Manga;
 
 public interface IMangaRepositorio extends JpaRepository<Manga, Long> {
@@ -13,4 +14,8 @@ public interface IMangaRepositorio extends JpaRepository<Manga, Long> {
 	
 	@Query("Select m from Manga m WHERE lower(m.nombre) LIKE lower(concat('%', :nombre,'%')) ")
 	public List<Manga> findByNombreIgnoreCaseContainsOrderByNombreAsc(String nombre);
+
+	public List<Manga> findByNombreContainsIgnoreCase(String cadena);
+
+	public int findNumProductosByCategoria(Categoria categoria);
 }
