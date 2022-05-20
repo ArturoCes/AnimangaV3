@@ -1,5 +1,7 @@
 package com.salesianos.triana.dam.animanga.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,13 +58,16 @@ public class CategoriaController {
 
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") Long catId, Model model) {
-		Categoria c = categoriaService.findById(catId);
-		for (Manga m : c.getListaMangas()) {
-			m.setCategoria(null);
-			mangaService.save(m);
+		
+		Optional<Categoria> c = categoriaService.findById(catId);
+		if(c.isPresent()) {
+			for (Manga m : c.get().getListaMangas()) {
+				m.setCategoria(null);
+				mangaService.save(m);
+			}
+			categoriaService.deleteById(catId);
 		}
-		categoriaService.delete(c);
-		return "redirect:/";
+		return "redirect:/categoria/gestionCategoria";
 	}
 
 	/**
@@ -101,8 +106,11 @@ public class CategoriaController {
 
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable("id") Long categoriaId, Model model) {
-		Categoria c = categoriaService.findById(categoriaId);
-		model.addAttribute(c);
+		Optional<Categoria> c = categoriaService.findById(categoriaId);
+		if(c.isPresent()) {
+			model.addAttribute(c.get());
+		}
+		
 
 		return "formularioCategoria";
 	}

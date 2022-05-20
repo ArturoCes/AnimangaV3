@@ -8,6 +8,6 @@ import com.salesianos.triana.dam.animanga.model.LineaDeVenta;
 
 public interface ILineaDeVentaRepositorio extends JpaRepository<LineaDeVenta, Long>{
 
-	public List<LineaDeVenta> findByTicketId(Long id);
+	public List<LineaDeVenta> findByCarritoId(Long id);
 	
 }

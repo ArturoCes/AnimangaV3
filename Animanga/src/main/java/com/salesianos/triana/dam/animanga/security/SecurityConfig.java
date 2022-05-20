@@ -34,6 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.hasRole("ADMIN").antMatchers("/categoria/gestionCategoria**").hasRole("ADMIN").antMatchers("/eliminar/**")
 				.hasRole("ADMIN").antMatchers("/mangaka/eliminar/**").hasRole("ADMIN")	
 				.antMatchers("/lista/**").hasRole("ADMIN")
+				
+				.antMatchers("/mangaka/lista/**").hasRole("ADMIN")
+				
 				.antMatchers("/categoria/eliminar/**").hasRole("ADMIN").anyRequest().permitAll().and()
 				.exceptionHandling().accessDeniedPage("/error").and().formLogin().and().logout().logoutSuccessUrl("/");
 

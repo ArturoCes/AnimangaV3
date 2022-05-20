@@ -70,17 +70,18 @@
 
 			color: beige;
 		}
+		
 	</style>
 </head>
 <nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-1 col-md-10">
 				<div class="pull-right">
-					<a href="formularioCategoria.html" th:href="@{/mangaka/form}" class="btn bot">Nuevo
-						producto</a>
+					<a href="formularioCategoria.html" th:href="@{/mangaka/form}" class="btn bot">Agregar
+						mangaka</a>
 
 				</div>
 
@@ -88,15 +89,19 @@
 					<thead>
 						<tr>
 							<th>Imagen</th>
-							<th>Nombre</th>
-							<th>Pvp</th>
+							<th>Nombre</th>						
 							<th>Operaciones</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="mangaka : ${mangakas}">
+						<td>
+						<img th:src="${not (#strings.isEmpty(mangaka.urlPortada))} 
+								              ? ${mangaka.urlPortada} : 'http://placehold.it/48x48'" class="img-responsive icono-categoria"
+						alt="imagen1" />
+						</td>
 							<td th:text="${mangaka.nombre}"> </td>
-
+							
 							<td class="operaciones"><a href="#"
 									th:href="@{/mangaka/editar/{id}(id=${mangaka.id})}"
 									class="btn bot">Editar</a>

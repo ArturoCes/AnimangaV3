@@ -12,6 +12,6 @@ import com.salesianos.triana.dam.animanga.service.base.BaseService;
 public class LineaDeVentaService extends BaseService<LineaDeVenta, Long, ILineaDeVentaRepositorio>{
 
 	public List <LineaDeVenta> findByTicket(Long id){
-		return this.repositorio.findByTicketId(id);
+		return this.repositorio.findByCarritoId(id);
 	}
 }

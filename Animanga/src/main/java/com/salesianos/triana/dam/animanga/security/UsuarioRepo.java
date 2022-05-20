@@ -38,7 +38,7 @@ public class UsuarioRepo {
 				,
 				Usuario.builder()
 				.username("user")
-				.password("user")
+				.password("1234")
 				.role("USER")
 				.nombre("Usuario ")
 				.apellidos("Normal")

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://http://www.thymeleaf.org/">
+
+<head th:replace="~{fragmentos/head::head}">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+
+<body>
+	<header>
+		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+	</header>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-10 col-md-offset-1">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th class="text-center">Precio</th>
+							<th class="text-center">Subtotal</th>
+							<th> </th>
+						</tr>
+					</thead>
+					<tbody>
+
+
+						<tr th:each="element : ${products.entrySet()}">
+							<td><a class="thumbnail pull-left" href="#"> <img class="media-object"
+										src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
+										style="width: 72px; height: 72px;" th:src="${element.key.urlPortada}"
+										alt="icono" />
+								</a></td>
+							<td th:text="${element.key.nombre}"></td>
+							<td th:text="${element.value}"></td>
+							<td><strong th:text="${element.key.precio}">$4.87</strong></td>
+
+
+							<td th:text="${element.key.precio * element.value}"> </td>
+
+
+
+
+
+
+
+							<td>
+								<a th:href="@{/carrito/borrarProducto/{id}(id=${element.key.id})}"
+									class="btn btn-primary bot">
+									<button type="button" class="btn btn-danger">
+										Eliminar
+									</button></a>
+							</td>
+						</tr>
+
+
+						<tr>
+							<td colspan=2> </td>
+
+							<td colspan=3>
+
+								<form th:action="@{/carrito/checkout}" method="get">
+									<label for="numero">Comprar</label>
+
+									<input class="btn btn-light border border-0 bg-success mt-3 text-light"
+										type="submit" name="Checkout" value="Checkout" />
+								</form>
+
+							</td>
+						</tr>
+
+						<h4>Precio Final:</h4>
+
+						<div class="text-right">
+							<h3>
+								<strong th:text="${total_carrito+'€'}">100€</strong>
+							</h3>
+						</div>
+
+
+					</tbody>
+				</table>
+			</div>
+
+
+
+
+		</div>
+
+
+	</div>
+	<a th:href="@{/manga}"><button class=" btn btn-light pastel border border-0 rounded-pill">Seguir
+			comprando</button></a>
+
+	</div>
+</body>
+
+</html>

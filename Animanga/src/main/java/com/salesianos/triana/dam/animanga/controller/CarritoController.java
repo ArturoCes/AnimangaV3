@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianos.triana.dam.animanga.model.Categoria;
 import com.salesianos.triana.dam.animanga.model.Manga;
@@ -22,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Controller
+@RequestMapping("/carrito")
 public class CarritoController {
 
 	@Autowired
@@ -29,60 +31,48 @@ public class CarritoController {
 	@Autowired
 	private MangaService mangaService;
 
-	
 	@Autowired
 	private CategoriaService categoriaService;
 
-
-	@GetMapping("private/mostrarTicket") // Se encarga de mostrar todo lo que esté añadido al carrito, en mi caso será
-											// igual
+	@GetMapping("/mostrarCarrito") 
 	public String showCarrito(Model model) {
-	
-	List<Categoria> categorias = new ArrayList<Categoria>();
 
-	for (Categoria cat : categoriaService.findAll()) {
+		List<Categoria> categorias = categoriaService.findAll();
 
-		categorias.add(cat);
+		model.addAttribute("categorias", categorias);
+
+		model.addAttribute("products", carritoService.getProductsCarrito());
+
+		return "cart";
 	}
 
-	model.addAttribute("categorias", categorias);
-	
-
-	model.addAttribute("products", carritoService.getProductsCarrito());
-
-	return "/private/Ticket";
-}	
-		
-
-	@GetMapping("private/productoACarrito/{id}") // añade un producto al carrito
+	@GetMapping("/productoACarrito/{id}") 
 	public String productoACarrito(@PathVariable("id") long id, Model model) {
 
 		Optional<Manga> comprobar = mangaService.findById(id);
 
 		if (comprobar.isPresent()) {
-			carritoService.addProducto(comprobar.get());// se hará igual
-			return "redirect:/private/mostrarTicket";
+			carritoService.addProducto(comprobar.get());
+			return "redirect:/carrito/mostrarCarrito";
 		} else {
-			// No existe ningún categoria con el Id proporcionado.
-			// Redirigimos hacia el listado.
+
 			return "redirect:/";
 		}
 	}
 
-	@GetMapping("/private/borrarProducto/{id}")
+	@GetMapping("/borrarProducto/{id}")
 	public String removeProductFromCart(@PathVariable("id") Long id) {
 
 		carritoService.removeManga(mangaService.findById(id));
-		return "redirect:/private/mostrarTicket";
+		return "redirect:/carrito/mostrarCarrito";
 	}
-	
-	
-	@GetMapping("/private/cerrarTicket")
-	public String checkout() {		
-		
-			carritoService.cerrarTicket();
-			return "redirect:/private/categorias";
-		
+
+	@GetMapping("/checkout")
+	public String checkout() {
+
+		carritoService.cerrarTicket();
+		return "redirect:/manga";
+
 	}
 
 	@ModelAttribute("total_carrito")
@@ -100,4 +90,3 @@ public class CarritoController {
 		return 0.0;
 	}
 }
-	
