@@ -7,9 +7,9 @@ insert into categoria(id,nombre,descripcion)values (3,'Seinen','Seguro que algun
 
 insert into mangaka (id,nombre,edad,url_portada,biografia) values (1,'Eiichiro Oda',47,'https://www.friking.es/img/cms/eiichiro_oda_one_piece-png_673822677.png','Eiichiro Oda es un mangaka japonés conocido por su serie de manga One Piece, la cual ha vendido más de 490 millones de copias en todo el mundo y ha conseguido un récord Guinness al ser el manga con mayor cantidad de copias editadas de la misma obra de cómic realizado por un únicoautor en todo el mundo');
 
-insert into mangaka (id,nombre,edad,url_portada,biografia) values (2,'Masashi Kishimoto',47,'https://www.friking.es/img/cms/eiichiro_oda_one_piece-png_673822677.png','Eiichiro Oda es un mangaka japonés conocido por su serie de manga One Piece, la cual ha vendido más de 490 millones de copias en todo el mundo y ha conseguido un récord Guinness al ser el manga con mayor cantidad de copias editadas de la misma obra de cómic realizado por un únicoautor en todo el mundo');
+insert into mangaka (id,nombre,edad,url_portada,biografia) values (2,'Masashi Kishimoto',47,'https://www.carteltec.com/wp-content/uploads/2022/03/Naruto-este-personaje-es-el-favorito-de-Masashi-Kishimoto-he-758x399.jpg','Masashi Kishimoto es un mangaka japonés conocido por su serie de manga One Piece, la cual ha vendido más de 490 millones de copias en todo el mundo y ha conseguido un récord Guinness al ser el manga con mayor cantidad de copias editadas de la misma obra de cómic realizado por un únicoautor en todo el mundo');
 
-insert into categoria(id,nombre,descripcion)values (4,'Sin categoria','----');
+
 
 
 insert into manga (id,url_portada, precio,nombre, descripcion,editorial,num_pags,isbn10,peso_producto,autor_id,categoria_id)values (1,'https://i.ibb.co/m03TcGw/Volume-0.webp',4,'Jujutsu Kaisen','descripcion de Jujutsu Kaisen','norma Editorial',7,'123122311',0.3,1,1);
