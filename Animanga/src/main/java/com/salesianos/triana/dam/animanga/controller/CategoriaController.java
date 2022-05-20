@@ -57,14 +57,10 @@ public class CategoriaController {
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") Long catId, Model model) {
 		Categoria c = categoriaService.findById(catId);
-		Categoria c2 = categoriaService.findById(4L);
 		for (Manga m : c.getListaMangas()) {
-
-			m.addCategoria(c2);
-
+			m.setCategoria(null);
 			mangaService.save(m);
 		}
-
 		categoriaService.delete(c);
 		return "redirect:/";
 	}

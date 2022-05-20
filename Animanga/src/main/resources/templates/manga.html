@@ -35,7 +35,7 @@
 						<div class="btn-group">
 							<button type="button" class="btn btn-sm btn-success m-2">Añadir al carrito</button>
 							<div sec:authorize="hasRole('ROLE_ADMIN')">
-								<a th:href="@{/editar/{id}(id=${manga.id})}"><button type="button"
+								<a th:href="@{/eliminar/{id}(id=${manga.id})}"><button type="button"
 										class="btn btn-sm btn-danger m-2">Eliminar</button></a>
 								<a th:href="@{/editar/{id}(id=${manga.id})}"><button type="button"
 										class="btn btn-sm btn-primary m-2">Editar</button></a>
