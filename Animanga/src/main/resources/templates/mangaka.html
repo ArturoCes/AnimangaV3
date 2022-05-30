@@ -12,7 +12,7 @@
 	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
 
 	<main>
-		<div class="mt-5 pt-5 container-fluid row mr-0 pr-0 " data-aos="flip-right">
+		<div class="mt-5 pt-5 container-fluid row mr-0 pr-0 " data-aos="zoom-out">
 			<div class="col-12 col-lg-4 my-3 mr-0 pr-0 ">
 				<div class="card shadow-sm mr-0 pr-0">
 					<img th:src="${not (#strings.isEmpty(mangaka.urlPortada))} 
@@ -25,7 +25,7 @@
 					<h2 class="p-2" th:text="${mangaka.nombre}">nombre</h2>
 					<p class="separador2 px-2" id="biografia" th:text="${mangaka.biografia}">biografia</p>
 					<p th:text="${mangaka.edad}" class="sep4 px-2">edad</p>
-					<div class="btn-group">
+					<div class="btn-group" sec:authorize="hasRole('ROLE_ADMIN')">
 						<button type="button" class="btn btn-sm btn-outline-secondary m-2"><a
 								th:href="@{/mangaka/eliminar/{id}(id=${mangaka.id})}">Eliminar</a></button>
 						<button type="button" class="btn btn-sm btn-outline-secondary m-2"><a

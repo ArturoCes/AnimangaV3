@@ -29,7 +29,9 @@ Las tecnologías que use fueron:
    ###### CSS
    ###### JavaScript
    ###### 
-   
+ 
+Lógica de negocios: Si un autor tiene el boolean “destacado” en true, sus obras aparecerán en la sección más vistos.
+  
 ## Modelo de datos  
  El modelo de datos que utilizó en este proyecto es el MVC (modelo vista controlador).
  

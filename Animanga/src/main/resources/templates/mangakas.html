@@ -22,8 +22,10 @@
 					<div class="card-body separador2">
 						<h3 class="separador3" th:text="${mangaka.nombre}">nombre</h3>
 						<p th:text="${mangaka.edad}">edad</p>
-						<a th:href="@{/mangaka/editar/{id}(id=${mangaka.id})}" class="btn btn-primary bot">Editar</a>
 						<a th:href="@{/mangaka/mangaka/{id}(id=${mangaka.id})}" class="btn btn-primary bot ">Ver más</a>
+						<div class="card-body separador2" sec:authorize="hasRole('ROLE_ADMIN')">
+						<a th:href="@{/mangaka/editar/{id}(id=${mangaka.id})}" class="btn btn-primary bot">Editar</a>
+					
 
 					</div>
 				</div>
