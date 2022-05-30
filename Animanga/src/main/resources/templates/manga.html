@@ -36,10 +36,11 @@
 
 
 
-							<a  th:href="@{/login}"><button type="button" class="btn btn-sm btn-success m-2 "
-								sec:authorize="!isAuthenticated()">Añadir al carrito</button></a>
-							<a th:href="@{/carrito/productoACarrito/{id}(id=${manga.id})}"><button type="button" class="btn btn-sm btn-success m-2 "
-								sec:authorize="isAuthenticated()">Añadir al carrito</button></a>
+							<a th:href="@{/login}"><button type="button" class="btn btn-sm btn-success m-2 "
+									sec:authorize="!isAuthenticated()">Añadir al carrito</button></a>
+							<a th:href="@{/carrito/productoACarrito/{id}(id=${manga.id})}"><button type="button"
+									class="btn btn-sm btn-success m-2 " sec:authorize="isAuthenticated()">Añadir al
+									carrito</button></a>
 							<div sec:authorize="hasRole('ROLE_ADMIN')">
 								<a th:href="@{/eliminar/{id}(id=${manga.id})}"><button type="button"
 										class="btn btn-sm btn-danger m-2">Eliminar</button></a>
