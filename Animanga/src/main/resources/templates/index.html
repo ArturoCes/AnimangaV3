@@ -18,7 +18,7 @@
 				<div class="card shadow-sm separador2">
 					<img th:src="${not (#strings.isEmpty(manga.urlPortada))} 
                                    ? ${manga.urlPortada} : 'http://placehold.it/48x48'"
-						class="img-responsive icono-categoria" alt="imagen" />
+						class="img-responsive icono-categoria" alt="${manga.textoAlternativo}" />
 					<h3 class="separador3" th:text="${manga.nombre}">nombre</h3>
 
 					<div>

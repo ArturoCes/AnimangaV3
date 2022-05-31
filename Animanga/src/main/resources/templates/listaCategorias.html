@@ -70,7 +70,6 @@
 
 			color: beige;
 		}
-		
 	</style>
 </head>
 <nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
@@ -84,13 +83,10 @@
 						categoría</a>
 
 				</div>
-
-				<table class="table">
+				<table class="table table-striped table-bordered" id="tabla">
 					<thead>
 						<tr>
-				
-							<th>Nombre</th>
-					
+							<th> Nombre</th>
 							<th>Operaciones</th>
 						</tr>
 					</thead>
@@ -98,8 +94,7 @@
 						<tr th:each="categoria : ${categorias}">
 							<td th:text="${categoria.nombre}"> </td>
 
-							<td class="operaciones"><a href="#"
-									th:href="@{/categoria/editar/{id}(id=${categoria.id})}"
+							<td class="operaciones"><a href="#" th:href="@{/categoria/editar/{id}(id=${categoria.id})}"
 									class="btn bot">Editar</a>
 								<button type="button" class="btn btn-danger" data-bs-toggle="modal"
 									th:attr="data-bs-target='#deleteModal'+ '-' + ${categoria.id}"> Borrar
@@ -131,6 +126,7 @@
 						</tr>
 					</tbody>
 				</table>
+
 			</div>
 		</div>
 	</div>

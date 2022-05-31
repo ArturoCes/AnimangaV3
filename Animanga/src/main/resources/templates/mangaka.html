@@ -26,10 +26,10 @@
 					<p class="separador2 px-2" id="biografia" th:text="${mangaka.biografia}">biografia</p>
 					<p th:text="${mangaka.edad}" class="sep4 px-2">edad</p>
 					<div class="btn-group" sec:authorize="hasRole('ROLE_ADMIN')">
-						<button type="button" class="btn btn-sm btn-outline-secondary m-2"><a
-								th:href="@{/mangaka/eliminar/{id}(id=${mangaka.id})}">Eliminar</a></button>
-						<button type="button" class="btn btn-sm btn-outline-secondary m-2"><a
-								th:href="@{/mangaka/editar/{id}(id=${mangaka.id})}">Editar</a></button>
+						<a th:href="@{/mangaka/eliminar/{id}(id=${mangaka.id})}"><button type="button"
+								class="btn btn-sm btn-danger m-2">Eliminar</button></a>
+						<a th:href="@{/mangaka/editar/{id}(id=${mangaka.id})}"> <button type="button"
+								class="btn btn-sm btn-primary m-2">Editar</button></a>
 
 					</div>
 				</div>

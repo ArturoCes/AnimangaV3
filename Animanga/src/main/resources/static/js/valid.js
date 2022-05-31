@@ -7,6 +7,8 @@ document.getElementById("precio").addEventListener("blur",comprobarPrecio);
 document.getElementById("isbn10").addEventListener("blur",comprobarIsbn10);
 document.getElementById("pesoProducto").addEventListener("blur",comprobarPesoProducto);
 
+
+
 function revisarFormulario() {
 	let resultado = false;
 	resultado = comprobarUrl()&&
@@ -17,60 +19,67 @@ function revisarFormulario() {
 				comprobarPrecio()&&
 				comprobarIsbn10()&&
 				comprobarPesoProducto();
-	formulario.enviar.className = resultado ? "btn btn success mb-2" : "btn btn danger mb-2";
+	formulario.enviar.className = resultado ? "btn btn-lg btn-outline-danger" : "btn btn-lg btn-outline-success";
 	return resultado;
 
 }
 
 function comprobarUrl() {
 	let campoUrl = document.getElementById("urlPortada");
-	let valid = /^(ftp|http|https):\/\/[^ "]+$/.test(formulario.urlPortada.value);	
-	cambiarApariencia(campoUrl,valid);
+	let resultado = /^(ftp|http|https):\/\/[^ "]+$/.test(formulario.urlPortada.value);	
+	cambiarApariencia(campoUrl,resultado);
+	return resultado;
 }
 
 function comprobarNombre (){
 	let campoNombre= document.getElementById("nombre");
 	
-	let valid = formulario.nombre.value !== "";
-	cambiarApariencia(campoNombre,valid);
+	let resultado = formulario.nombre.value !== "";
+	cambiarApariencia(campoNombre,resultado);
+	return resultado;
 }
 function comprobarDescripcion (){
 	let campoDescripcion= document.getElementById("descripcion");
-	
-	let valid = formulario.descripcion.value !=="";
-	cambiarApariencia(campoDescripcion,valid);
+	let resultado = formulario.descripcion.value !==""&&formulario.descripcion.value.length>=30&&formulario.descripcion.value.length<=200;
+	cambiarApariencia(campoDescripcion,resultado);
+	return resultado;
 	
 }
 function comprobarEditorial(){
 	let campoEditorial = document.getElementById("editorial");
-	let valid= formulario.editorial.value !=="" && isNaN(formulario.editorial.value);
-	cambiarApariencia(campoEditorial,valid);
+	let resultado= formulario.editorial.value !=="" && isNaN(formulario.editorial.value);
+	cambiarApariencia(campoEditorial,resultado);
+	return resultado;
 }
 
 function comprobarNumPags(){
 	let campoNumPags= document.getElementById("numPags");
 	
-	let valid = formulario.numPags.value > 5;
-	cambiarApariencia(campoNumPags,valid)
+	let resultado = formulario.numPags.value > 5;
+	cambiarApariencia(campoNumPags,resultado);
+	return resultado;
 }
 
 function comprobarPrecio(){
 	let campoPrecio=document.getElementById("precio");
-	let valid = formulario.precio.value>1;
-	cambiarApariencia(campoPrecio,valid);
+	let resultado = formulario.precio.value>1;
+	cambiarApariencia(campoPrecio,resultado);
+	return resultado;
 }
 function comprobarIsbn10(){
-	let campoIsbn10 = document.getElementById("Isbn10");
-	let valid = /^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/.test(formulario.isbn10.value);
-	cambiarApariencia(campoIsbn10,valid);
+	let campoIsbn10 = document.getElementById("isbn10");
+	let resultado = /^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/.test(formulario.isbn10.value);
+	cambiarApariencia(campoIsbn10,resultado);
+	return resultado;
 	
 }
 
 function comprobarPesoProducto(){
 	let campoPesoProducto=document.getElementById("pesoProducto");
-	
-	let valid = formulario.pesoProducto.value>0.5;
-	cambiarApariencia(campoPesoProducto,valid);
+	let variable = 2;
+	let resultado = formulario.pesoProducto.value>=variable&&!isNaN(formulario.pesoProducto.value);
+	cambiarApariencia(campoPesoProducto,resultado);
+	return resultado;
 }
 
 function cambiarApariencia(campo, estado){	
