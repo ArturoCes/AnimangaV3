@@ -26,7 +26,7 @@
 										<div class="form-group">
 											<div class="col-lg-10 mt-5">
 												<label for="urlPortada">URL PORTADA</label>
-												<input th:field="*{urlPortada}" id="urlPortada" name="urlPortada" onblur="comprobarUrl()"
+												<input th:field="*{urlPortada}" id="urlPortada" name="urlPortada" 
 													type="text" placeholder="urlPortada" class="form-control" >
 											</div>
 											<div class="mensajeError text-danger" id="errorNombre" >error</div>
@@ -36,9 +36,9 @@
 												<label for="nombre">Nombre</label>
 												<input th:field="*{nombre}" id="nombre" name="nombre" type="text"
 													placeholder="Nombre" class="form-control" required>
-												<div class="valid-feedback">correcto</div>
-												<div class="invalid-feedback">Tienes que rellenar este campo</div>
+												
 											</div>
+											<div class="mensajeError text-danger" id="errorNombre" >error</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-8">
@@ -46,17 +46,17 @@
 												<textarea th:field="*{descripcion}" class="form-control"
 													id="descripcion" name="descripcion" placeholder="Descripción"
 													rows="7" required></textarea>
-												<div class="valid-feedback">correcto</div>
-												<div class="invalid-feedback">Tienes que rellenar este campo</div>
+											
 											</div>
+											<div class="mensajeError text-danger" id="errorNombre" >error</div>
 										</div>
 										<div class="form-group col-lg-10">
 											<label for="editorial">Editorial</label>
 											<input th:field="*{editorial}" id="editorial" name="editorial" type="text"
 												placeholder="Editorial" class="form-control" required>
-											<div class="valid-feedback">correcto</div>
-											<div class="invalid-feedback">Tienes que rellenar este campo</div>
+											
 										</div>
+										<div class="mensajeError text-danger" id="errorNombre" >error</div>
 
 
 										<div class="form-group col-lg-10">
@@ -64,29 +64,30 @@
 											<input th:field="*{numPags}" id="numPags" name="numPags" type="number"
 												min="1" placeholder="Número de páginas" class="form-control"
 												pattern='[0-9]+(\.[0-9][0-9]?)?' required>
-											<div class="valid-feedback">correcto</div>
-											<div class="invalid-feedback">Tienes que introducir números en este campo
-											</div>
+						
 										</div>
+										<div class="mensajeError text-danger" id="errorNombre" >error</div>
+										
 										<div class="form-group col-lg-10">
 											<label for="precio">Precio</label>
 											<input th:field="*{precio}" id="precio" name="precio" type="number" min="1"
 												placeholder="precio" class="form-control"
 												pattern='[0-9]+(\.[0-9][0-9]?)?' required>
-											<div class="valid-feedback">correcto</div>
-											<div class="invalid-feedback">Tienes que introducir números en este campo
-											</div>
+											
 										</div>
+										<div class="mensajeError text-danger" id="errorNombre" >error</div>
 										<div class="form-group col-lg-10">
 											<label for="isbn10">ISBN 10</label>
 											<input th:field="*{isbn10}" id="isbn10" name="isbn10" type="number"
 												placeholder="ISBN" class="form-control" required>
 										</div>
+										<div class="mensajeError text-danger" id="errorNombre" >error</div>
 										<div class="form-group col-lg-10">
 											<label for="pesoProducto">Peso producto</label>
 											<input th:field="*{pesoProducto}" id="pesoProducto" name="pesoProducto"
 												type="number" placeholder="pesoProducto" class="form-control" required>
 										</div>
+										<div class="mensajeError text-danger" id="errorNombre" >error</div>
 										<div class="form-check ml-3">
 											<label for="fecha">Fecha de llegada</label>
 											<input th:text="${fecha}" type="date" name="fecha" id="fech" />
