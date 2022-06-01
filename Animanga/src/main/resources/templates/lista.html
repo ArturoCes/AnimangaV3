@@ -73,7 +73,7 @@
 	</style>
 </head>
 <nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
-
+	<header th:replace= "~{fragmentos/header::header}">	</header>
 <body class="d-flex flex-column min-vh-100">
 	<div class="container">
 		<div class="row">
@@ -97,7 +97,7 @@
 						<tr th:each="manga : ${mangas}">
 							<td><img th:src="${not (#strings.isEmpty(manga.urlPortada))} 
 								              ? ${manga.urlPortada} : 'http://placehold.it/48x48'" class="img-responsive icono-categoria"
-									alt="imagen" /></td>
+									th:alt="${manga.textoAlternativo}" /></td>
 							<td th:text="${manga.nombre}"></td>
 							<td th:text="${manga.precio}"></td>
 							<td class="operaciones"><a href="#" th:href="@{/editar/{id}(id=${manga.id})}"

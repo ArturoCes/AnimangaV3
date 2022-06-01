@@ -90,11 +90,13 @@ public class InitData {
 		mangaRepositorio.save(manga4);
 		
 		Manga manga5 = Manga.builder().urlPortada(
-				"https://i.pinimg.com/originals/45/0e/33/450e334da7aaafc7cda718409e5c226c.jpg")
+				"https://i.pinimg.com/originals/45/0e/33/450e334da7aaafc7cda718409e5c226c.jpssg")
 				.nombre("Naruto").descripcion("Jujutsu kaisen es un manga muy popular en japon ANAZHEE")
 				.fecha(LocalDate.now())
 				.editorial("Norma Editorial").numPags(35).isbn10("12345678910").pesoProducto(2.5).categoria(kodomo)
+				.textoAlternativo("Manga bonico")
 				.autor(mangaka1).build();
+		
 
 		mangaRepositorio.save(manga5);
 		

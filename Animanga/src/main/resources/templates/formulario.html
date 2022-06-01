@@ -18,9 +18,8 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-	<header>
-		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
-	</header>
+	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+	<header th:replace="~{fragmentos/header::header}"> </header>
 	<main class="asistencia">
 		<section>
 			<article>
@@ -36,7 +35,7 @@
 											<div class="col-lg-10 mt-5">
 												<label for="urlPortada">URL PORTADA</label>
 												<input th:field="*{urlPortada}" id="urlPortada" name="urlPortada"
-													type="text" placeholder="urlPortada" class="form-control" >
+													type="text" placeholder="urlPortada" class="form-control">
 											</div>
 											<div class="mensajeError text-danger" id="errorNombre">Ingrese una url
 												correcta.</div>
@@ -45,7 +44,7 @@
 											<div class="col-lg-10 mt-5">
 												<label for="nombre">Nombre</label>
 												<input th:field="*{nombre}" id="nombre" name="nombre" type="text"
-													placeholder="Nombre" class="form-control" >
+													placeholder="Nombre" class="form-control">
 
 											</div>
 											<div class="mensajeError text-danger" id="errorNombre">Este campo es
@@ -65,7 +64,7 @@
 										<div class="form-group col-lg-10">
 											<label for="editorial">Editorial</label>
 											<input th:field="*{editorial}" id="editorial" name="editorial" type="text"
-												placeholder="Editorial" class="form-control" >
+												placeholder="Editorial" class="form-control">
 
 										</div>
 										<div class="mensajeError text-danger" id="errorNombre">Rellene este campo,
@@ -75,8 +74,7 @@
 										<div class="form-group col-lg-10">
 											<label for="numPags">Número de páginas</label>
 											<input th:field="*{numPags}" id="numPags" name="numPags" type="number"
-												min="1" placeholder="Número de páginas" class="form-control"
-												>
+												min="1" placeholder="Número de páginas" class="form-control">
 										</div>
 										<div class="mensajeError text-danger" id="errorNombre">Ingrese un número valido,
 											el minimo de páginas debe ser de 5.</div>
@@ -84,8 +82,7 @@
 										<div class="form-group col-lg-10">
 											<label for="precio">Precio</label>
 											<input th:field="*{precio}" id="precio" name="precio" type="number" min="1"
-												placeholder="precio" class="form-control"
-												>
+												placeholder="precio" class="form-control">
 
 										</div>
 										<div class="mensajeError text-danger" id="errorNombre">Ingrese un precio, el
@@ -102,7 +99,7 @@
 										<div class="form-group col-lg-10">
 											<label for="pesoProducto">Peso producto</label>
 											<input th:field="*{pesoProducto}" id="pesoProducto" name="pesoProducto"
-												type="text" placeholder="pesoProducto" class="form-control" >
+												type="text" placeholder="pesoProducto" class="form-control">
 										</div>
 										<div class="mensajeError text-danger" id="errorNombre">Rellene este campo. (El
 											producto no puede tener un peso negativo).</div>
@@ -134,7 +131,8 @@
 										<div class="form-group d-flex m-3">
 											<button type="reset" class="btn btn-lg btn-outline-primary">Borrar
 												todo</button>
-											<button type="submit" id="enviar" class="btn btn-lg btn-outline-primary">Enviar</button>
+											<button type="submit" id="enviar"
+												class="btn btn-lg btn-outline-primary">Enviar</button>
 										</div>
 									</fieldset>
 								</form>

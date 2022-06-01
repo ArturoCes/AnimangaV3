@@ -32,67 +32,63 @@
 						<a class="nav-link text-light" th:href="@{/mangaka/mangakas}">MANGAKAS</a>
 					</li>
 
-						<div class="dropdown">
+					<div class="dropdown">
 
-							<button type="button"
-								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
-								data-bs-toggle="dropdown">
-								CATEGORÍAS
-							</button>
-							<ul class="dropdown-menu bg-dark text-light">
-								<th:block th:each="categoria : ${categorias}">
-									<a class="dropdown-item text-light"
-									
-										th:href="@{/manga/categoria/{id}(id=${categoria.id})}"
-										th:text="${categoria.nombre}"></a>
-								</th:block>
-							</ul>
-						</div>
-						<li class="nav-item text-light">
+						<button type="button"
+							class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
+							data-bs-toggle="dropdown">
+							CATEGORÍAS
+						</button>
+						<ul class="dropdown-menu bg-dark text-light">
+							<th:block th:each="categoria : ${categorias}">
+								<a class="dropdown-item text-light"
+									th:href="@{/manga/categoria/{id}(id=${categoria.id})}"
+									th:text="${categoria.nombre}"></a>
+							</th:block>
+						</ul>
+					</div>
+					<li class="nav-item text-light">
 						<a class="nav-link text-light" th:href="@{/destacados}">MÁS VISTOS</a>
 					</li>
 
+
+					<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+						Open Offcanvas Sidebar
+					</button>
+
 				</ul>
-					<div class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+				<div class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
 
-							<button type="button"
-								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
-								data-bs-toggle="dropdown">
-								AÑADIR
-							</button>
-							<ul class="dropdown-menu bg-dark text-light">
-								
-									<a class="dropdown-item text-light"
-										th:href="@{/form}">Mangas</a>
-										<a class="dropdown-item text-light"
-										th:href="@{/mangaka/form}">Mangakas</a>
-										<a class="dropdown-item text-light"
-										th:href="@{/categoria/form}">Categorias</a>
-										
-										
-							
-							</ul>
-						</div>
-						<div class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+					<button type="button" class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
+						data-bs-toggle="dropdown">
+						AÑADIR
+					</button>
+					<ul class="dropdown-menu bg-dark text-light">
 
-							<button type="button"
-								class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
-								data-bs-toggle="dropdown">
-								OPCIONES
-							</button>
-							<ul class="dropdown-menu bg-dark text-light">
-						
-										<a class="dropdown-item text-light"
-										th:href="@{/lista}">Mangas</a>
-										<a class="dropdown-item text-light"
-										th:href="@{/categoria/gestionCategoria}">Categorias</a>
-											<a class="dropdown-item text-light"
-										th:href="@{/mangaka/lista}">Mangakas</a>
-										
-							
-							</ul>
-						</div>
-			
+						<a class="dropdown-item text-light" th:href="@{/form}">Mangas</a>
+						<a class="dropdown-item text-light" th:href="@{/mangaka/form}">Mangakas</a>
+						<a class="dropdown-item text-light" th:href="@{/categoria/form}">Categorias</a>
+
+
+
+					</ul>
+				</div>
+				<div class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+
+					<button type="button" class="btn btn-primary dropdown-toggle bg-dark border border-dark text-light"
+						data-bs-toggle="dropdown">
+						OPCIONES
+					</button>
+					<ul class="dropdown-menu bg-dark text-light">
+
+						<a class="dropdown-item text-light" th:href="@{/lista}">Mangas</a>
+						<a class="dropdown-item text-light" th:href="@{/categoria/gestionCategoria}">Categorias</a>
+						<a class="dropdown-item text-light" th:href="@{/mangaka/lista}">Mangakas</a>
+
+
+					</ul>
+				</div>
+
 				<form class="d-flex">
 
 					<input class="form-control me-2 " type="text-muted" name="q" th:value="${param.q}"

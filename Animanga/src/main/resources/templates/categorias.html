@@ -8,11 +8,12 @@
 
 <body>
 	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
-	
+	<header th:replace="~{fragmentos/header::header}"> </header>
 	<div class="mt-4 p-5 bg-primary text-white rounded">
-		  <h th:text="${categoria.nombre}"></h1>
-		  <p th:text="${categoria.descripcion}"></p>
-		
+		<h th:text="${categoria.nombre}">
+			</h1>
+			<p th:text="${categoria.descripcion}"></p>
+
 	</div>
 	<section id="section1" class="row d-flex justify-content-center pt-5 mt-5">
 
@@ -28,14 +29,14 @@
 						<p th:text="${manga.autor.nombre}">autor</p>
 						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Ver más</a>
 						<div class="card-body separador2" sec:authorize="hasRole('ROLE_ADMIN')">
-						<a th:href="@{/editar/{id}(id=${manga.id})}" class="btn btn-primary bot">Editar</a>
-						<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Comprar</a>
-						
+							<a th:href="@{/editar/{id}(id=${manga.id})}" class="btn btn-primary bot">Editar</a>
+							<a th:href="@{/manga/{id}(id=${manga.id})}" class="btn btn-primary bot ">Comprar</a>
 
+
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 	<footer th:replace="~{fragmentos/piePagina::pie}"></footer>

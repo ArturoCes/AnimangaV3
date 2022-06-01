@@ -8,9 +8,10 @@
 
 
 <body>
-	<header>
-		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
-	</header>
+
+	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
+	<header th:replace="~{fragmentos/header::header}"> </header>
+
 
 
 	<div class="container" data-aos="zoom-out-up">
@@ -21,6 +22,7 @@
 					<thead>
 						<tr>
 							<th>Producto</th>
+							<th>Nombre</th>
 							<th>Cantidad</th>
 							<th class="text-center">Precio</th>
 							<th class="text-center">Subtotal</th>
@@ -43,8 +45,7 @@
 
 							<td th:text="${element.key.precio * element.value}"> </td>
 							<td>
-								<a th:href="@{/carrito/borrarProducto/{id}(id=${element.key.id})}"
-									class="btn btn-primary ">
+								<a th:href="@{/carrito/borrarProducto/{id}(id=${element.key.id})}">
 									<button type="button" class="btn btn-danger">
 										Eliminar
 									</button></a>
