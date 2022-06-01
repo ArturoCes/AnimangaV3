@@ -43,7 +43,7 @@ public class Manga {
 	private String descripcion;
 	private String editorial;
 	private int numPags;
-
+	private String textoAlternativo;
 
 	private String isbn10;
 	private double pesoProducto;
