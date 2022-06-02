@@ -6,20 +6,61 @@
 	<meta name="description" content="Página Web de venta de mangas">
 	<meta name="keywords" content="HTML, CSS, JavaScript">
 	<meta name="author" content="Arturo Céspedes Pedrazas">
-	
+
 </head>
 
 <body>
-	<header th:fragment= "header">
-	<div class="offcanvas offcanvas-start" id="demo">
-			<div class="offcanvas-header">
-				<h1 class="offcanvas-title">Heading</h1>
-				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+	<header th:fragment="header">
+		<div class="offcanvas offcanvas-end bg-dark" id="demo">
+			<div class="offcanvas-header bg-dark">
+				<h1 class="offcanvas-title">OPCIONES</h1>
+				<button type="button" class="btn-close text-reset bg-dark" data-bs-dismiss="offcanvas"></button>
 			</div>
-			<div class="offcanvas-body">
-				<p>Some text lorem ipsum.</p>
-				<p>Some text lorem ipsum.</p>
-				<button class="btn btn-secondary" type="button">A Button</button>
+			<div sec:authorize="hasRole('ROLE_ADMIN')">
+
+				<h1>AÑADIR </h1>
+				</button>
+				<table class="table table-striped table-bordered">
+					<tr>
+						<td>
+							<a th:href="@{/form}">
+								<buton type="button" class=" btn btn-secondary text-light">Mangas</button>
+							</a>
+						</td>
+					<tr>
+						<td> <a th:href="@{/mangaka/form}">
+								<buton type="button" class="btn btn-secondary text-light">Mangakas</button>
+							</a></td>
+					</tr>
+					<td>
+						<a th:href="@{/categoria/form}">
+							<buton type="button" class=" btn btn-secondary text-light">Categorias</button>
+						</a>
+					</td>
+					</tr>
+				</table>
+			</div>
+			<div sec:authorize="hasRole('ROLE_ADMIN')">
+
+
+				<h1>GESTIÓN</h1>
+				<table class="table table-striped table-bordered">
+
+					<tr>
+					<tr>
+						<td><a th:href="@{/lista}"> <button type="button" class="btn btn-secondary text-light">Mangas
+								</button></a></td>
+					</tr>
+					<tr>
+						<td><a th:href="@{/categoria/gestionCategoria}"><button type="button"
+									class=" btn btn-secondary text-light ">Categorias </button></a></td>
+					</tr>
+					<td><a th:href="@{/mangaka/lista}"><button type="button"
+								class="  btn btn-secondary text-light ">Mangakas</button></a></td>
+					</tr>
+				</table>
+
+				</ul>
 			</div>
 		</div>
 	</header>

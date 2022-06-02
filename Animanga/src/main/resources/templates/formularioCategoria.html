@@ -7,9 +7,8 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-	<header>
-		<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
-	</header>
+	<header th:replace="~{fragmentos/header::header}"> </header>
+	<nav th:replace="~{fragmentos/navBar::encabezado}"></nav>
 	<main class="asistencia">
 		<section>
 			<article>
