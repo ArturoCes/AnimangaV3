@@ -70,7 +70,7 @@ public class CarritoService extends BaseService<Carrito, Long, ICarritoRepositor
 					.build()
 					);
 			
-			total+=total+(lineaDeVenta.getKey().getPrecio() * lineaDeVenta.getValue());
+			total=total+(lineaDeVenta.getKey().getPrecio() * lineaDeVenta.getValue());
 		}
 		//build del carrito
 		carrito = Carrito.builder()
