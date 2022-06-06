@@ -89,4 +89,8 @@ public class CarritoController {
 
 		return 0.0;
 	}
+	@GetMapping("/carrito/mostrarCarrito")
+	public String mostrarCarrito () {
+		return "cart";
+	}
 }

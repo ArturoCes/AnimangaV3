@@ -76,7 +76,7 @@ function comprobarIsbn10() {
 
 function comprobarPesoProducto() {
 	let campoPesoProducto = document.getElementById("pesoProducto");
-	let variable = 2;
+	let variable = 0.1;
 	let resultado = formulario.pesoProducto.value >= variable && !isNaN(formulario.pesoProducto.value);
 	cambiarApariencia(campoPesoProducto, resultado);
 	return resultado;
